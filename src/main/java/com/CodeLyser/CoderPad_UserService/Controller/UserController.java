@@ -43,7 +43,8 @@ public class UserController {
     }
 
     @PutMapping("/admin/approveUser")
-    public String approveUser(String userEmail){
+    public String approveUser(@RequestParam String userEmail)
+    {
         return userService.approveUser(userEmail);
     }
 
