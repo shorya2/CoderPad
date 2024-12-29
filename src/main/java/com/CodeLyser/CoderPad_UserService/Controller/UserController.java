@@ -32,9 +32,9 @@ public class UserController {
     }
 
     @PutMapping("/updatePassword/{userID}")
-    public String updateUserPassword(@PathVariable long userID,@RequestParam String email,
+    public String updateUserPassword(@PathVariable long userID,
                                      @RequestParam String currentPassword, @RequestParam String newPassword){
-        return userService.updateUserPassword(userID,email,currentPassword,newPassword);
+        return userService.updateUserPassword(userID,currentPassword,newPassword);
     }
 
     @GetMapping("/admin/getAllNotApproved")

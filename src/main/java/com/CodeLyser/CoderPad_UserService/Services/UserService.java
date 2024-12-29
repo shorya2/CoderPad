@@ -70,17 +70,16 @@ public class UserService {
     }
 
     //changing the user password
-    public String updateUserPassword(Long userID,String email, String currentPassword, String newPassword){
+    public String updateUserPassword(Long userID, String currentPassword, String newPassword){
         Optional<User> userWithGivenID = userRepository.findById(userID);
         if(userWithGivenID.isEmpty()){
             return "User not found";
         }
         User user = userWithGivenID.get();
 
-        if(!user.getPassword().equals(currentPassword)){
+        if(!user.getPassword().equals(currentPassword)) {
             return "current password does not match";
         }
-        user.setEmail(email);
         user.setPassword(newPassword);
         return "Password updated successfully";
     }
