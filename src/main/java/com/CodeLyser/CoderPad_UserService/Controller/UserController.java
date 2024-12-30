@@ -32,9 +32,9 @@ public class UserController {
     }
 
     @PutMapping("/updatePassword/{userID}")
-    public String updateUserPassword(@PathVariable long userID,@RequestParam String email,
+    public String updateUserPassword(@PathVariable long userID,
                                      @RequestParam String currentPassword, @RequestParam String newPassword){
-        return userService.updateUserPassword(userID,email,currentPassword,newPassword);
+        return userService.updateUserPassword(userID,currentPassword,newPassword);
     }
 
     @GetMapping("/admin/getAllNotApproved")
@@ -43,7 +43,8 @@ public class UserController {
     }
 
     @PutMapping("/admin/approveUser")
-    public String approveUser(String userEmail){
+    public String approveUser(@RequestParam String userEmail)
+    {
         return userService.approveUser(userEmail);
     }
 
@@ -51,4 +52,7 @@ public class UserController {
     public List<User> getAllUsers(){
         return userService.getAllUsers();
     }
+
+
+
 }

@@ -15,6 +15,7 @@ public class AttemptedTest {
     private Long testId;
     private Long userId;
     private int score;
+
     private String questionDescription;
     private String optionSelected;
     private String correctOption;
@@ -28,6 +29,7 @@ public class AttemptedTest {
     public void setId(Long id) {
         this.id = id;
     }
+
 
     public String getQuestionDescription() {
         return questionDescription;
@@ -61,13 +63,16 @@ public class AttemptedTest {
         this.score = score;
     }
 
-//    public Long getQuestionId() {
-//        return questionId;
-//    }
-//
-//    public void setQuestionId(Long questionId) {
-//        this.questionId = questionId;
-//    }
+
+
+    public Long getQuestionId() {
+        return questionId;
+    }
+
+    public void setQuestionId(Long questionId) {
+        this.questionId = questionId;
+    }
+
 
     public String getOptionSelected() {
         return optionSelected;
