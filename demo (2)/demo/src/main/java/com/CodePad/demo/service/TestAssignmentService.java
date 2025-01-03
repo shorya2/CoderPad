@@ -1,3 +1,4 @@
+
 package com.CodePad.demo.service;
 
 import com.CodePad.demo.dto.AttemptStatistics;
@@ -9,16 +10,15 @@ import com.CodePad.demo.repository.AttemptedTestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.List;
 
 @Service
-public class TestAssignmentService {
-
+public class TestAssignmentService
     private static final String DB_URL = "jdbc:mysql://localhost:3306/db";
     private static final String USER = "root";
-    private static final String PASSWORD = "Sgbc$1234";
+    private static final String PASSWORD = "password";
 
     @Autowired
     private AssignedTestRepository assignedTestRepository;
@@ -86,14 +86,30 @@ public class TestAssignmentService {
     }
 
 
+
+    // 7. Record Test Attempt
+    public AttemptedTest recordTestAttempt(AttemptedTest attempt) {
+        return attemptedTestRepository.save(attempt);
+    }
+
+    // 8. Get User Attempts for a Test
+
     public List<AttemptedTest> getUserAttemptsForTest(Long testId, Long userId) {
         return attemptedTestRepository.findByTestIdAndUserId(testId, userId);
     }
 
-    // 9. Get all attempts for a test
+   
+
+    // 9. Get All Attempts by User
+    public List<AttemptedTest> getAllAttemptsByUser(Long userId) {
+        return attemptedTestRepository.findByUserId(userId);
+    }
+
+    // 10. Get All Attempts for a Test
     public List<AttemptedTest> getAllAttemptsForTest(Long testId) {
         return attemptedTestRepository.findByTestId(testId);
     }
+
     // 11. Get Attempt Statistics
     public AttemptStatistics getAttemptStatistics(Long testId, Long userId) {
         List<AttemptedTest> attempts = attemptedTestRepository.findByTestIdAndUserId(testId, userId);
@@ -108,6 +124,7 @@ public class TestAssignmentService {
 
         return stats;
     }
+
 
     // Method to validate SQL query and compare results
     private QueryValidationResult validateSQLQuery(String userQuery, String correctQuery) {
