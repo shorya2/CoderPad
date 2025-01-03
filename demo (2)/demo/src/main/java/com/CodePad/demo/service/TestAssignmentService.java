@@ -8,17 +8,25 @@ import com.CodePad.demo.exception.ResourceNotFoundException;
 import com.CodePad.demo.repository.AssignedTestRepository;
 import com.CodePad.demo.repository.AttemptedTestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
-public class TestAssignmentService
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/db";
-    private static final String USER = "root";
-    private static final String PASSWORD = "password";
+public class TestAssignmentService{
+
+    @Value("${spring.datasource.url}")
+    private String DB_URL;
+
+    @Value("${spring.datasource.username}")
+    private String USER;
+
+    @Value("${spring.datasource.password}")
+    private String PASSWORD;
 
     @Autowired
     private AssignedTestRepository assignedTestRepository;
@@ -87,10 +95,10 @@ public class TestAssignmentService
 
 
 
-    // 7. Record Test Attempt
-    public AttemptedTest recordTestAttempt(AttemptedTest attempt) {
-        return attemptedTestRepository.save(attempt);
-    }
+//    // 7. Record Test Attempt
+//    public AttemptedTest recordTestAttempt(AttemptedTest attempt) {
+//        return attemptedTestRepository.save(attempt);
+//    }
 
     // 8. Get User Attempts for a Test
 
@@ -224,9 +232,13 @@ public class TestAssignmentService
             this.userQueryResult = userQueryResult;
         }
         public boolean isMatch() {
-            // This can be modified to compare the query results in a more sophisticated way if needed
+            // Null check before comparing results
+            if (correctQueryResult == null || userQueryResult == null) {
+                return false;
+            }
             return correctQueryResult.equals(userQueryResult);
         }
+
 
         public String getMessage() {
             return message;
