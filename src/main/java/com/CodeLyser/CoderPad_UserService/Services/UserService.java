@@ -1,6 +1,5 @@
 package com.CodeLyser.CoderPad_UserService.Services;
 
-import com.CodeLyser.CoderPad_UserService.Mapper.UserMapper;
 import com.CodeLyser.CoderPad_UserService.Model.User;
 import com.CodeLyser.CoderPad_UserService.Model.UserRole;
 import com.CodeLyser.CoderPad_UserService.Respository.UserRepository;
@@ -19,9 +18,6 @@ public class UserService {
     @Autowired
     private UserRoleRepository userRoleRepository;
 
-    @Autowired
-    private UserMapper userMapper;
-
 
     //registering a new user
     public String registerUser(String firstName, String lastName, String email, String password, String roleName){
@@ -29,10 +25,17 @@ public class UserService {
             return ("User with given email already exists");//user already present
         }
 
-        User user = userMapper.toUser(firstName, lastName, email, password, roleName);
+        User user = new User();
+        user.setFirstName(firstName);
+        user.setLastName(lastName);
+        user.setEmail(email);
+        user.setPassword(password);
+        user.setActive(true );
         userRepository.save(user);
 
-        UserRole userRole = userMapper.toUserRole(user, roleName);
+        UserRole userRole = new UserRole();
+        userRole.setUser(user);
+        userRole.setRoleName(roleName);
         userRoleRepository.save(userRole);
 
         return "User registered successfully, awaiting approval for role: " + roleName;
@@ -60,24 +63,24 @@ public class UserService {
             return "User not found";
         }
         User user = userWithGivenId.get();
-        userMapper.toUpdatedUser(user,email,firstName,lastName);
-        userRepository.save(user);
+        user.setEmail(email);
+        user.setFirstName(firstName);
+        user.setLastName(lastName);
         return "Profile updated successfully";
     }
 
     //changing the user password
-    public String updateUserPassword(Long userID,String email, String currentPassword, String newPassword){
+    public String updateUserPassword(Long userID, String currentPassword, String newPassword){
         Optional<User> userWithGivenID = userRepository.findById(userID);
         if(userWithGivenID.isEmpty()){
             return "User not found";
         }
         User user = userWithGivenID.get();
 
-        if(!user.getPassword().equals(currentPassword)){
+        if(!user.getPassword().equals(currentPassword)) {
             return "current password does not match";
         }
-        userMapper.toUpdatedPassword(user, email, newPassword);
-        userRepository.save(user);
+        user.setPassword(newPassword);
         return "Password updated successfully";
     }
 

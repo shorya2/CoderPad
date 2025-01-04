@@ -1,5 +1,6 @@
 package com.CodeLyser.CoderPad_UserService.Model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -22,6 +23,7 @@ public class User {
     private Date createdAt;
 
     @OneToOne(mappedBy = "user")
+    @JsonManagedReference
     private UserRole userRole;
 
     public boolean isActive() {
