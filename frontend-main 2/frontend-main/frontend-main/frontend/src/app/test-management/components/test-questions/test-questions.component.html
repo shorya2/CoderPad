@@ -1,0 +1,36 @@
+<div class="test-questions-container">
+  <h2>Questions for Test: {{ testDetails?.testName }}</h2>
+  <p>{{ testDetails?.testDescription }}</p>
+
+  <button (click)="navigateToQuestionList()" class="add-question-btn">
+    Questions
+  </button>
+
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Question Description</th>
+        <th>Type</th>
+        <th>Difficulty</th>
+        <th>Correct Answer</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let question of questions; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ question.questionDescription }}</td>
+        <td>{{ question.quesType }}</td>
+        <td>{{ question.difficulty }}</td>
+        <td>{{ question.correctAnswer }}</td>
+        <td>
+          <button (click)="deleteQuestionFromTest(question.id)" class="delete-button">Delete</button>
+          <button (click)="navigateToUpdateQuestion(question.id)" class="update-button">Update</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- <p>Welcome To Test Questions!</p> -->

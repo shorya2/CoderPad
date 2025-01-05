@@ -1,0 +1,27 @@
+<div class="question-list-container">
+  <h2>Question List</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Description</th>
+        <th>Type</th>
+        <th>Difficulty</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let question of questions">
+        <td>{{ question.id }}</td>
+        <td>{{ question.questionDescription }}</td>
+        <td>{{ question.quesType }}</td>
+        <td>{{ question.difficulty }}</td>
+        <td>
+          <button (click)="addToTest(question)">Add Q</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- <p>Welcome To Question List!</p> -->

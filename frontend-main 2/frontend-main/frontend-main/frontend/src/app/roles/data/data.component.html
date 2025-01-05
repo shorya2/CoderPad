@@ -1,0 +1,44 @@
+<div class="navbar">
+  <div class="navbar-left">
+    <button routerLink="/create-test" class="nav-button">Create Tests</button>
+    <button routerLink="/test-list" class="nav-button">Tests</button>
+    <button routerLink="/create-question" class="nav-button">Create Questions</button>
+  </div>
+
+  <div class="navbar-right">
+    <div class="dropdown">
+      <button class="nav-button">User</button>
+      <div class="dropdown-content">
+        <a routerLink="/profile">Profile</a>
+        <a routerLink="/login">Logout</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Hero Section -->
+<div class="hero-section">
+  <div>
+    <h1>Welcome to CoderPad</h1>
+    <p>Empowering Your Queries, One Line at a Time</p>
+  </div>
+</div>
+
+<!-- Content Section -->
+<div class="content-section">
+  <div>
+    <h2>Data Admin</h2>
+    <p>Unlocking Insights, Securing Data</p>
+  </div>
+</div>
+
+<!-- Footer Section -->
+<footer class="footer">
+  <div>
+    <p>&copy; 2024 TechStore. All Rights Reserved.</p>
+    <a href="#" class="text-white">Privacy Policy</a> | 
+    <a href="#" class="text-white">Terms of Service</a>
+  </div>
+</footer>
+  <router-outlet></router-outlet> <!-- Child components will render here -->
+  

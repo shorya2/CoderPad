@@ -1,0 +1,158 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #007bff;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-right {
+  margin-left: auto; /* Push the User button to the right */
+  position: relative; /* Positioning context for the dropdown */
+}
+
+.nav-button {
+  color: white;
+  background-color: #0056b3;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.nav-button:hover {
+  background-color: #003d80;
+}
+
+.nav-button:focus {
+  outline: none;
+}
+
+/* Dropdown styling */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  display: none;
+  flex-direction: column;
+  min-width: 150px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.dropdown-item {
+  background-color: #ffffff;
+  color: #333;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  text-decoration: none;
+}
+
+.dropdown-item:hover {
+  background-color: #007bff;
+}
+
+/* Show the dropdown when the parent is hovered */
+.dropdown:hover .dropdown-menu {
+  display: flex;
+}
+
+
+.hero-section {
+  height: 33.33%; /* Hero section takes up a third of the page */
+  background-color: #f8f9fa;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hero-section h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+.hero-section p {
+  font-size: 1.25rem;
+}
+.content-section {
+  height: 33.33%; /* Content section takes up a third of the page */
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0b75e7;
+  color: white;
+}
+.content-section h2 {
+  font-size: 2rem;
+}
+
+
+/* Overall page styling to ensure the footer stays at the bottom */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure the body height covers the entire viewport */
+  margin: 0; /* Remove default margin */
+}
+
+/* Main content area to push footer down */
+main {
+  flex: 1; /* Allow the main content to grow and push the footer down */
+}
+
+/* Footer Styles */
+/* Ensure the html and body take the full height */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Main content area */
+main {
+  flex: 1; /* Pushes the footer to the bottom when content is short */
+}
+
+/* Footer Styles */
+.footer {
+  background-color: #333; /* Dark background */
+  color: #fff; /* White text */
+  text-align: center; /* Center-align the text */
+  padding: 15px 20px; /* Add padding for a neat appearance */
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  margin-top: auto; /* Ensures the footer sticks at the bottom */
+}
+
+.footer p {
+  margin: 0;
+}
+
+.footer a {
+  color: #00aaff; /* Light blue for links */
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+  color: #66d9ff;
+}

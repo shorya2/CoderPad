@@ -1,0 +1,42 @@
+<div class="navbar">
+  <div class="navbar-left">
+    <button routerLink="/create-test" class="nav-button">Create Tests</button>
+    <button routerLink="/test-list" class="nav-button">Tests</button>
+    <button routerLink="/create-question" class="nav-button">Create Questions</button>
+  </div>
+
+  <div class="navbar-right">
+    <div class="dropdown">
+      <button class="nav-button">User</button>
+      <div class="dropdown-content">
+        <a routerLink="/profile">Profile</a>
+        <a routerLink="/login">Logout</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="create-test-container">
+  <h1>Create Test</h1>
+  <form [formGroup]="testForm" (ngSubmit)="saveTest()">
+    <div class="form-group">
+      <label for="createdBy">Created By (Admin ID)</label>
+      <input id="createdBy" type="text" formControlName="createdBy" placeholder="Enter Admin ID" />
+    </div>
+    <div class="form-group">
+      <label for="testName">Test Name</label>
+      <input id="testName" type="text" formControlName="testName" placeholder="Enter Test Name" />
+    </div>
+    <div class="form-group">
+      <label for="testDescription">Test Description</label>
+      <textarea id="testDescription" formControlName="testDescription" placeholder="Enter Test Description"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="duration">Duration (in minutes)</label>
+      <input id="duration" type="number" formControlName="duration" placeholder="Enter Duration" />
+    </div>
+    <button type="submit" class="save-button" [disabled]="testForm.invalid">Save Test</button>
+  </form>
+</div>
+
+<!-- <p>Welcome To Create Test</p> -->

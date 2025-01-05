@@ -1,0 +1,40 @@
+<div class="attempted-test-container">
+  <h2>Attempting Test: {{ testDetails?.testName }}</h2>
+  <p>Duration: {{ testDetails?.duration }} minutes</p>
+  <div class="timer">Time Remaining: {{ formatTime(timer) }}</div>
+
+
+  <div *ngFor="let question of questions; let i = index">
+    <!-- MCQ question type -->
+    <div *ngIf="question.quesType === 'mcq'">
+      <p>{{i+1}} . {{ question.questionDescription }}</p>
+      <div>
+        <label *ngFor="let option of getOptions(question)">
+          <input
+            type="radio"
+            [name]="'question_' + question.id"
+            [value]="option"
+            (change)="selectAnswer(question.id, option)"
+          />
+          {{ option }}
+        </label>
+      </div>
+    </div>
+
+    <!-- SQL question type -->
+    <div *ngIf="question.quesType === 'sql'">
+      <p>{{i+1}} . {{ question.questionDescription }}</p>
+      <textarea
+        (input)="selectAnswer(question.id, getTextAreaValue($event))"
+      ></textarea>
+    </div>
+  </div>
+
+<div class="submit-button-style">
+   <button  (click)="submitTest()" class="submit-button">Submit Test</button>
+</div>
+
+</div>
+
+
+<!-- <p>Welcome To Attempted Test</p> -->
