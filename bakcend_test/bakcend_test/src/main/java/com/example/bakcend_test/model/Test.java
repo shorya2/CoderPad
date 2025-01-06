@@ -1,6 +1,7 @@
 package com.example.bakcend_test.model;
 
 import jakarta.persistence.*;
+
 import java.util.List;
 import java.util.UUID;
 
@@ -14,8 +15,16 @@ public class Test {
     private String testDescription; // Description of the test
     private int duration; // Duration of the test in minutes
 
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<Question> questions; // List of questions in the test
+//    @OneToMany(cascade = CascadeType.ALL)
+//    private List<Question> questions; // List of questions in the test
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "test_questions", // Name of the join table
+            joinColumns = @JoinColumn(name = "test_id"), // Foreign key for Test
+            inverseJoinColumns = @JoinColumn(name = "question_id") // Foreign key for Question
+    )
+    private List<Question> questions ; // List of questions in the test
 
     @PrePersist
     public void generateId() {

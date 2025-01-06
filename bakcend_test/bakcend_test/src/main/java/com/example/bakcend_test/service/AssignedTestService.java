@@ -2,7 +2,9 @@ package com.example.bakcend_test.service;
 
 
 import com.example.bakcend_test.model.AssignedTest;
+import com.example.bakcend_test.model.Question;
 import com.example.bakcend_test.repository.AssignedTestRepository;
+import com.example.bakcend_test.repository.AttemptedTestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,9 @@ public class AssignedTestService {
 
     @Autowired
     private AssignedTestRepository assignedTestRepository;
+
+    @Autowired
+    private AttemptedTestRepository attemptedTestRepository;
 
     // Fetch all assigned tests
     public List<AssignedTest> getAllAssignedTests() {

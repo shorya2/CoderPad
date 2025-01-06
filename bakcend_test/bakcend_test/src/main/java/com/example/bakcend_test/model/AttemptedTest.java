@@ -1,6 +1,7 @@
 package com.example.bakcend_test.model;
 
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import java.util.List;
 import java.util.UUID;
@@ -9,15 +10,16 @@ import java.util.UUID;
 public class AttemptedTest {
 
     @Id
-
     private String id; // Unique identifier for the attempted test
     private String candidateId; // ID of the candidate who attempted the test
     private String testId; // ID of the test that was attempted
 
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<Question> questions; // List of questions with answers provided by the candidate
+    @Transient
+    private List<Question> questions; // This is only for input and not stored in the database
 
-    // Getters and Setters
+    @OneToMany(mappedBy = "attemptedTest", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference // Prevent infinite recursion
+    private List<AttemptedQuestion> attemptedQuestions; // Processed questions stored in the DB
 
     @PrePersist
     public void generateId() {
@@ -25,6 +27,8 @@ public class AttemptedTest {
             id = UUID.randomUUID().toString(); // Generate a unique ID
         }
     }
+
+    // Getters and Setters
     public String getId() {
         return id;
     }
@@ -55,5 +59,13 @@ public class AttemptedTest {
 
     public void setQuestions(List<Question> questions) {
         this.questions = questions;
+    }
+
+    public List<AttemptedQuestion> getAttemptedQuestions() {
+        return attemptedQuestions;
+    }
+
+    public void setAttemptedQuestions(List<AttemptedQuestion> attemptedQuestions) {
+        this.attemptedQuestions = attemptedQuestions;
     }
 }

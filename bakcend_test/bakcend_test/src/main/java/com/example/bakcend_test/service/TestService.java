@@ -59,6 +59,10 @@ public class TestService {
                 .orElseThrow(() -> new RuntimeException("Question not found"));
 
         // Add the question to the test
+        if (test.getQuestions().contains(question)) {
+            throw new RuntimeException("Question is already added to this test.");
+        }
+
         test.getQuestions().add(question);
 
         // Save and return the updated test

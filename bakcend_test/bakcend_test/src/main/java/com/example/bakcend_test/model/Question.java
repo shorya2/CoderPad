@@ -3,6 +3,8 @@ package com.example.bakcend_test.model;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -17,9 +19,14 @@ public class Question {
     private String option2;
     private String option3;
     private String option4;
+    private String selectedAnswer;
     private String correctAnswer;
+   // private boolean isCorrect;
 
     // Getters and Setters
+
+    @ManyToMany(mappedBy = "questions")
+    private List<Test> tests = new ArrayList<>(); // List of tests containing this question
 
     @PrePersist
     public void generateId() {
@@ -27,6 +34,22 @@ public class Question {
             id = UUID.randomUUID().toString(); // Generate a unique ID
         }
     }
+
+    public String getSelectedAnswer() {
+        return selectedAnswer;
+    }
+
+    public void setSelectedAnswer(String selectedAnswer) {
+        this.selectedAnswer = selectedAnswer;
+    }
+
+//    public boolean isCorrect() {
+//        return isCorrect;
+//    }
+//
+//    public void setCorrect(boolean correct) {
+//        isCorrect = correct;
+//    }
 
     public String getId() {
         return id;
