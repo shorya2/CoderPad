@@ -1,0 +1,60 @@
+<div class="profile-container">
+  <h2>User Profile</h2>
+  <form [formGroup]="profileForm" (ngSubmit)="onUpdateProfile()">
+    <div>
+      <label for="username">Username</label>
+      <input
+        id="username"
+        formControlName="username"
+        type="text"
+        placeholder="Enter username"
+      />
+    </div>
+    <div>
+      <label for="useremail">Email</label>
+      <input
+        id="useremail"
+        formControlName="useremail"
+        type="useremail"
+        placeholder="Enter email"
+      />
+    </div>
+    <button type="submit" [disabled]="!profileForm.valid">Update Profile</button>
+  </form>
+
+  <hr />
+
+  <h2>Change Password</h2>
+  <form [formGroup]="passwordForm" (ngSubmit)="onChangePassword()">
+    <!-- <div>
+      <label for="currentPassword">Current Password</label>
+      <input
+        id="currentPassword"
+        formControlName="currentPassword"
+        type="password"
+        placeholder="Enter current password"
+      />
+    </div> -->
+    <div>
+      <label for="password">New Password</label>
+      <input
+        id="password"
+        formControlName="password"
+        type="password"
+        placeholder="Enter new password"
+      />
+    </div>
+    <div>
+      <label for="cnfpassword">Confirm Password</label>
+      <input
+        id="cnfpassword"
+        formControlName="cnfpassword"
+        type="password"
+        placeholder="Confirm new password"
+      />
+    </div>
+    <button type="submit" [disabled]="!passwordForm.valid">Change Password</button>
+  </form>
+</div>
+<!-- <p>Welcome To Profile Page!!</p> -->
+

@@ -1,0 +1,56 @@
+<div class="navbar">
+  <div class="navbar-left">
+    <button routerLink="/create-test" class="nav-button">Create Tests</button>
+    <button routerLink="/test-list" class="nav-button">Tests</button>
+    <button routerLink="/create-question" class="nav-button">Create Questions</button>
+  </div>
+
+  <div class="navbar-right">
+    <div class="dropdown">
+      <button class="nav-button">User</button>
+      <div class="dropdown-content">
+        <a routerLink="/profile">Profile</a>
+        <a routerLink="/login">Logout</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="test-list-container">
+  <h1 class="header">Test List</h1>
+
+  <div *ngIf="tests.length === 0" class="no-tests">
+    <p>No tests available</p>
+  </div>
+
+  <div *ngIf="tests.length > 0" class="test-table-container">
+    <table class="test-list-table">
+      <thead>
+        <tr class="table-header">
+          <th>Test Name</th>
+          <th>Created By</th>
+          <th>Description</th>
+          <th>Duration (min)</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let test of tests" class="test-item">
+          <td>{{ test.testName }}</td>
+          <td>{{ test.createdBy }}</td>
+          <td>{{ test.testDescription }}</td>
+          <td>{{ test.duration }}</td>
+          <td>
+            <button (click)="updateTest(test.id)" class="update-button">Update</button>
+            <button (click)="viewTestDetails(test.id)" class="details-button">Details</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+
+<!-- <p>Welcome To Test List!</p> -->

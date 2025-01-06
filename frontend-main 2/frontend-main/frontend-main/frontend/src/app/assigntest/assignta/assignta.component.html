@@ -1,0 +1,44 @@
+<div class="navbar">
+  <div class="navbar-left">
+    <button routerLink="/assignta" class="nav-button">Send Tests</button>
+    <button routerLink="/roles/reports" class="nav-button">Reports</button>
+  </div>
+
+  <div class="navbar-right">
+    <div class="dropdown">
+      <button class="nav-button dropdown-button">User</button>
+      <div class="dropdown-content">
+        <a routerLink="/profile">Profile</a>
+        <a routerLink="/login">Logout</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <div class="container">
+    <h2>Available Tests</h2>
+    <table class="tests-table">
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Test Name</th>
+          <th>Description</th>
+          <th>Duration</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let test of tests; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{test.testName}}</td>
+          <td>{{ test.testDescription }}</td>
+          <td>{{ test.duration }}</td>
+          <td>
+            <button (click)="sendTest(test)" class="send-button">Send</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

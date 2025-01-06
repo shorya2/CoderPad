@@ -1,0 +1,293 @@
+{
+  "users": [
+    {
+      "id": "9440",
+      "username": "Anirban_Nandy1",
+      "userrole": "data-admin",
+      "useremail": "anirban@hotmail.com",
+      "password": "654321",
+      "cnfpassword": "654321",
+      "isActive": true
+    },
+    {
+      "id": "8765",
+      "username": "Anirudh_Nandy20",
+      "userrole": "candidate",
+      "useremail": "anirudh@hotmail.com",
+      "password": "654321",
+      "cnfpassword": "654321"
+    },
+    {
+      "id": "5432",
+      "username": "Tony_Stark50",
+      "userrole": "test-admin",
+      "useremail": "tony@hotmail.com",
+      "password": "654321",
+      "cnfpassword": "654321",
+      "isActive": true
+    }
+  ],
+  "tests": [
+    {
+      "id": "e274",
+      "createdBy": "9440",
+      "testName": "Java Test",
+      "testDescription": "Test On Basics Of Java",
+      "duration": 45,
+      "questions": [
+        {
+          "questionDescription": "What is 34+35 equal to?",
+          "quesType": "mcq",
+          "difficulty": "easy",
+          "option1": "69",
+          "option2": "43",
+          "option3": "46",
+          "option4": "68",
+          "correctAnswer": "69",
+          "id": "ce22"
+        },
+        {
+          "questionDescription": "What is 34+35 equal to?",
+          "quesType": "mcq",
+          "difficulty": "easy",
+          "option1": "69",
+          "option2": "43",
+          "option3": "46",
+          "option4": "68",
+          "correctAnswer": "69",
+          "id": "ce22"
+        }
+      ]
+    },
+    {
+      "id": "ae33",
+      "createdBy": "9440",
+      "testName": "DBMS Test",
+      "testDescription": "A basic sql based test for performing certain operations on MySQL database",
+      "duration": 30,
+      "questions": [
+        {
+          "id": "7a4d",
+          "questionDescription": "Write a query to get all the details from table Employees?",
+          "quesType": "sql",
+          "difficulty": "easy",
+          "option1": "null",
+          "option2": "null",
+          "option3": "null",
+          "option4": "null",
+          "correctAnswer": "select * from Employees;"
+        }
+      ]
+    },
+    {
+      "createdBy": "9440",
+      "testName": "Java Test",
+      "testDescription": "MCQ test on Collections in Java",
+      "duration": 45,
+      "id": "b121",
+      "questions": [
+        {
+          "questionDescription": "What is 34+35 equal to?",
+          "quesType": "mcq",
+          "difficulty": "easy",
+          "option1": "69",
+          "option2": "43",
+          "option3": "46",
+          "option4": "68",
+          "correctAnswer": "69",
+          "id": "ce22"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "questionDescription": "What is 34+35 equal to?",
+      "quesType": "mcq",
+      "difficulty": "easy",
+      "option1": "69",
+      "option2": "43",
+      "option3": "46",
+      "option4": "68",
+      "correctAnswer": "69",
+      "id": "ce22"
+    },
+    {
+      "id": "7a4d",
+      "questionDescription": "Write a query to get all the details from table Employees?",
+      "quesType": "sql",
+      "difficulty": "easy",
+      "option1": "null",
+      "option2": "null",
+      "option3": "null",
+      "option4": "null",
+      "correctAnswer": "select * from Employees;"
+    },
+    {
+      "id": "b230",
+      "questionDescription": "40+4",
+      "quesType": "mcq",
+      "difficulty": "medium",
+      "option1": "33",
+      "option2": "44",
+      "option3": "34",
+      "option4": "54",
+      "correctAnswer": "44"
+    },
+    {
+      "id": "64ee",
+      "questionDescription": "ww",
+      "quesType": "mcq",
+      "difficulty": "easy",
+      "option1": "null",
+      "option2": "null",
+      "option3": "null",
+      "option4": "null",
+      "correctAnswer": "d3"
+    }
+  ],
+  "assignedTests": [
+    {
+      "id": "e274",
+      "createdBy": "9440",
+      "testName": "Java Test",
+      "testDescription": "Test On Basics Of Java",
+      "duration": 45,
+      "questions": [
+        {
+          "questionDescription": "What is 34+35 equal to?",
+          "quesType": "mcq",
+          "difficulty": "easy",
+          "option1": "69",
+          "option2": "43",
+          "option3": "46",
+          "option4": "68",
+          "correctAnswer": "69",
+          "id": "ce22"
+        }
+      ]
+    },
+    {
+      "id": "b121",
+      "createdBy": "9440",
+      "testName": "Java Test",
+      "testDescription": "MCQ test on Collections in Java",
+      "duration": 45,
+      "questions": [
+        {
+          "questionDescription": "What is 34+35 equal to?",
+          "quesType": "mcq",
+          "difficulty": "easy",
+          "option1": "69",
+          "option2": "43",
+          "option3": "46",
+          "option4": "68",
+          "correctAnswer": "69",
+          "id": "ce22"
+        }
+      ]
+    },
+    {
+      "id": "e274",
+      "createdBy": "9440",
+      "testName": "Java Test",
+      "testDescription": "Test On Basics Of Java",
+      "duration": 45,
+      "questions": [
+        {
+          "questionDescription": "What is 34+35 equal to?",
+          "quesType": "mcq",
+          "difficulty": "easy",
+          "option1": "69",
+          "option2": "43",
+          "option3": "46",
+          "option4": "68",
+          "correctAnswer": "69",
+          "id": "ce22"
+        }
+      ]
+    },
+    {
+      "id": "b121",
+      "createdBy": "9440",
+      "testName": "Java Test",
+      "testDescription": "MCQ test on Collections in Java",
+      "duration": 45,
+      "questions": [
+        {
+          "questionDescription": "What is 34+35 equal to?",
+          "quesType": "mcq",
+          "difficulty": "easy",
+          "option1": "69",
+          "option2": "43",
+          "option3": "46",
+          "option4": "68",
+          "correctAnswer": "69",
+          "id": "ce22"
+        }
+      ]
+    }
+  ],
+  "AttemptedTest": [
+    {
+      "id": "fcac",
+      "candidateId": "8765",
+      "testId": "e274",
+      "questions": [
+        {
+          "questionDescription": "What is 34+35 equal to?",
+          "selectedAnswer": "69",
+          "correctAnswer": "69"
+        }
+      ]
+    },
+    {
+      "id": "33ac",
+      "candidateId": "8765",
+      "testId": "b121",
+      "questions": [
+        {
+          "questionDescription": "What is 34+35 equal to?",
+          "selectedAnswer": "",
+          "correctAnswer": "69"
+        }
+      ]
+    },
+    {
+      "id": "18f4",
+      "candidateId": "8765",
+      "testId": "e274",
+      "questions": [
+        {
+          "questionDescription": "What is 34+35 equal to?",
+          "selectedAnswer": "",
+          "correctAnswer": "69"
+        }
+      ]
+    },
+    {
+      "id": "66ab",
+      "candidateId": "8765",
+      "testId": "ae33",
+      "questions": [
+        {
+          "questionDescription": "Write a query to get all the details from table Employees?",
+          "selectedAnswer": "",
+          "correctAnswer": "select * from Employees;"
+        }
+      ]
+    },
+    {
+      "id": "7710",
+      "candidateId": "8765",
+      "testId": "b121",
+      "questions": [
+        {
+          "questionDescription": "What is 34+35 equal to?",
+          "selectedAnswer": "",
+          "correctAnswer": "69"
+        }
+      ]
+    }
+  ]
+}

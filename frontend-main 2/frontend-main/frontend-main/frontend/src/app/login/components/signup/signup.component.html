@@ -1,0 +1,98 @@
+<div class="signup-container">
+  <h2>Sign Up</h2>
+  <form #signupForm="ngForm" (ngSubmit)="signup()">
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input
+        type="text"
+        id="username"
+        [(ngModel)]="username"
+        name="username"
+        placeholder="Choose a Username"
+        class="form-input"
+        required
+        #usernameField="ngModel" />
+      <div class="error" *ngIf="usernameField.invalid && usernameField.touched">
+        Username is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="role">User Role:</label>
+      <select
+        id="userrole"
+        [(ngModel)]="userrole"
+        name="userrole"
+        class="form-input"
+        required
+        #roleField="ngModel">
+        <option value="" disabled selected>Select a role</option>
+        <option value="candidate">Candidate</option>
+        <option value="data-admin">Data Admin</option>
+        <option value="test-admin">Test Admin</option>
+        <option value="system-admin">System Admin</option>
+      </select>
+      <div class="error" *ngIf="roleField.invalid && roleField.touched">
+        Please select a role.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="useremail">User Email:</label>
+      <input
+        type="email"
+        id="useremail"
+        [(ngModel)]="useremail"
+        name="useremail"
+        placeholder="Enter your email"
+        class="form-input"
+        required
+        email
+        #emailField="ngModel" />
+      <div class="error" *ngIf="emailField.invalid && emailField.touched">
+        A valid email is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input
+        type="password"
+        id="password"
+        [(ngModel)]="password"
+        name="password"
+        placeholder="Create a password"
+        class="form-input"
+        required
+        minlength="6"
+        #passwordField="ngModel" />
+      <div class="error" *ngIf="passwordField.invalid && passwordField.touched">
+        Password must be at least 6 characters long.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="cnfpassword">Confirm Password:</label>
+      <input
+        type="password"
+        id="cnfpassword"
+        [(ngModel)]="cnfpassword"
+        name="cnfpassword"
+        placeholder="Confirm Your Password"
+        class="form-input"
+        required
+        [pattern]="password"
+        #cnfpasswordField="ngModel" />
+      <div class="error" *ngIf="cnfpasswordField.invalid && cnfpasswordField.touched">
+        Passwords must match.
+      </div>
+    </div>
+
+    <button
+      type="submit"
+      [disabled]="signupForm.invalid"
+      class="btn-primary">
+      Sign Up
+    </button>
+  </form>
+</div>

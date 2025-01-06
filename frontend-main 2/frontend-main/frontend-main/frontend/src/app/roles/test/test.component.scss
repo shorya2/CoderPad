@@ -1,0 +1,129 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #007bff;
+}
+
+.navbar-left, .navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.nav-button {
+  color: white;
+  background-color: #0056b3;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.nav-button:hover {
+  background-color: #003d80;
+}
+
+.nav-button:focus {
+  outline: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-button {
+  background-color: #0056b3;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #f9f9f9;
+  min-width: 150px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 5px;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropdown-button {
+  background-color: #003d80;
+}
+
+
+.hero-section {
+  height: 33.33%; /* Hero section takes up a third of the page */
+  background-color: #f8f9fa;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hero-section h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+.hero-section p {
+  font-size: 1.25rem;
+}
+.content-section {
+  height: 33.33%; /* Content section takes up a third of the page */
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #116be1;
+  color: white;
+}
+.content-section h2 {
+  font-size: 2rem;
+}
+
+.footer {
+  background-color: #333; /* Dark background */
+  color: #fff; /* White text */
+  text-align: center; /* Center-align the text */
+  padding: 15px 20px; /* Add padding for a neat appearance */
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  margin-top: auto; /* Ensures the footer sticks at the bottom */
+}
+
+.footer p {
+  margin: 0;
+}
+
+.footer a {
+  color: #00aaff; /* Light blue for links */
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+  color: #66d9ff;
+}

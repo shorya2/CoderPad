@@ -1,0 +1,33 @@
+<div class="navbar">
+    <div class="navbar-left">
+      <button routerLink="/assignedc" class="nav-button">Tests</button>
+      <button routerLink="/finished" class="nav-button">Attempted Tests</button>
+    </div>
+    
+    <div class="navbar-right">
+      <div class="dropdown">
+        <button class="nav-button" (click)="toggleDropdown()">User</button>
+        <div class="dropdown-menu" *ngIf="isDropdownVisible">
+          <button routerLink="/profile" class="dropdown-item">Profile</button>
+          <button routerLink="/login" (click)="logout()" class="dropdown-item">Logout</button>
+        </div>
+      </div>
+    </div>
+</div>
+<h2>Finished Tests</h2>
+<table>
+  <thead>
+    <tr>
+      <th>S.No</th>
+      <th>Test ID</th>
+      <th>Attempt ID</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let test of AttemptedTest; let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{ test.testId }}</td>
+      <td>{{ test.id }}</td>
+    </tr>
+  </tbody>
+</table>
