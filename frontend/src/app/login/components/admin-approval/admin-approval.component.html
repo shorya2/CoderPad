@@ -1,0 +1,48 @@
+<div class="navbar">
+  <div class="navbar-left">
+    <button routerLink="/admin-approval" class="nav-button">Profile Approval</button>
+    <button routerLink="/users" class="nav-button">Users</button>
+  </div>
+
+  <div class="navbar-right">
+    <div class="dropdown">
+      <button class="nav-button">User</button>
+      <div class="dropdown-menu">
+        <button routerLink="/profile" class="dropdown-item">Profile</button>
+        <button routerLink="/login" class="dropdown-item">Logout</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="admin-approval-container">
+  <h2>Admin Approval</h2>
+  <div *ngIf="isLoading" class="loading-spinner">Loading...</div>
+  <table *ngIf="!isLoading && users.length" class="styled-table">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{user.id}}</td>
+        <td>{{ user.userName }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.userRole?.roleName }}</td>
+        <td>
+          <button (click)="approveUser(user.email)" class="btn-approve">Approve</button>
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p *ngIf="!isLoading && !users.length" class="no-data">No users pending approval.</p>
+</div>
+
+<!-- <p>Welcome To Admin Approval Page</p> -->
