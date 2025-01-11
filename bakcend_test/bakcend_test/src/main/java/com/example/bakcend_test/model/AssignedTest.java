@@ -6,15 +6,16 @@ import java.util.UUID;
 
 @Entity
 public class AssignedTest {
-
     @Id
     private String id; // Unique identifier for the assigned test
     private String createdBy; // ID of the user who assigned the test
     private String testName; // Name of the assigned test
     private String testDescription; // Description of the assigned test
     private int duration; // Duration of the assigned test in minutes
+    private String email;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    //    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
     private List<Question> questions; // List of questions in the assigned test
 
     // Getters and Setters
@@ -27,6 +28,14 @@ public class AssignedTest {
     }
     public String getId() {
         return id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public void setId(String id) {

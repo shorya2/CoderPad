@@ -6,6 +6,7 @@ import com.example.bakcend_test.repository.TestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,8 +31,12 @@ public class TestService {
 
     // Create a new test
     public Test createTest(Test test) {
+        test.setCreatedDate(LocalDateTime.now());
+        test.setModifiedDate(LocalDateTime.now());
         return testRepository.save(test);
     }
+
+
 
     // Update an existing test
     public Test updateTest(String id, Test updatedTest) {
@@ -40,6 +45,7 @@ public class TestService {
             test.setTestDescription(updatedTest.getTestDescription());
             test.setDuration(updatedTest.getDuration());
             test.setQuestions(updatedTest.getQuestions());
+            test.setModifiedDate(LocalDateTime.now());
             return testRepository.save(test);
         }).orElseThrow(() -> new RuntimeException("Test not found with ID: " + id));
     }
@@ -64,6 +70,8 @@ public class TestService {
         }
 
         test.getQuestions().add(question);
+
+        test.setModifiedDate(LocalDateTime.now());
 
         // Save and return the updated test
         return testRepository.save(test);

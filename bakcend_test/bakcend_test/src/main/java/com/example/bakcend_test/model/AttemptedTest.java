@@ -3,6 +3,9 @@ package com.example.bakcend_test.model;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
+
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -13,6 +16,10 @@ public class AttemptedTest {
     private String id; // Unique identifier for the attempted test
     private String candidateId; // ID of the candidate who attempted the test
     private String testId; // ID of the test that was attempted
+
+    @CreationTimestamp
+    @Column(name = "attempted_date", updatable = false)
+    private LocalDateTime attemptedDate;
 
     @Transient
     private List<Question> questions; // This is only for input and not stored in the database
@@ -26,6 +33,14 @@ public class AttemptedTest {
         if (id == null || id.isEmpty()) {
             id = UUID.randomUUID().toString(); // Generate a unique ID
         }
+    }
+
+    public LocalDateTime getAttemptedDate() {
+        return attemptedDate;
+    }
+
+    public void setAttemptedDate(LocalDateTime attemptedDate) {
+        this.attemptedDate = attemptedDate;
     }
 
     // Getters and Setters
