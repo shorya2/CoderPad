@@ -1,20 +1,40 @@
+<div class="navbar">
+  <div class="navbar-left">
+    <button (click)="goBack()" class="back">Go Back</button>
+    <!-- <button routerLink="/roles/reports" class="nav-button">Go Back</button> -->
+  </div>
+
+  <div class="navbar-right">
+    <div class="dropdown">
+      <button class="nav-button dropdown-button"><i class="fa-solid fa-user"></i></button>
+      <div class="dropdown-content">
+        <a routerLink="/profile">Profile</a>
+        <a routerLink="/login">Logout</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 <div class="profile-container">
+  
   <h2>User Profile</h2>
   <form [formGroup]="profileForm" (ngSubmit)="onUpdateProfile()">
     <div>
-      <label for="username">Username</label>
+      <label for="userName">Username</label>
       <input
-        id="username"
-        formControlName="username"
+        id="userName"
+        formControlName="userName"
         type="text"
         placeholder="Enter username"
       />
     </div>
     <div>
-      <label for="useremail">Email</label>
+      <label for="email">Email</label>
       <input
-        id="useremail"
-        formControlName="useremail"
+        id="email"
+        formControlName="email"
         type="useremail"
         placeholder="Enter email"
       />
@@ -56,5 +76,14 @@
     <button type="submit" [disabled]="!passwordForm.valid">Change Password</button>
   </form>
 </div>
-<!-- <p>Welcome To Profile Page!!</p> -->
+<div class="hero-section"></div>
+
+  <footer class="footer">
+    <div>
+      <p>&copy; 2025 CoderPad. All Rights Reserved.</p>
+      <a href="#" class="text-white">Privacy Policy</a> | 
+      <a href="#" class="text-white">Terms of Service</a>
+    </div>
+  
+  </footer>
 

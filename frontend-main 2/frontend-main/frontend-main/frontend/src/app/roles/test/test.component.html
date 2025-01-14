@@ -6,7 +6,8 @@
 
   <div class="navbar-right">
     <div class="dropdown">
-      <button class="nav-button dropdown-button">User</button>
+      <span *ngIf="userName" class="user-welcome">Welcome!! {{userName}}</span>
+      <button class="nav-button dropdown-button"><i class="fa-solid fa-user"></i></button>
       <div class="dropdown-content">
         <a routerLink="/profile">Profile</a>
         <a routerLink="/login">Logout</a>
@@ -23,18 +24,12 @@
     </div>
   </div>
 
-  <!-- Content Section -->
-  <div class="content-section">
-    <div>
-      <h2>Test Admin</h2>
-      <p>Ensuring Quality, One Test at a Time</p>
-    </div>
-  </div>
+  
 
   <!-- Footer Section -->
   <footer class="footer">
     <div>
-      <p>&copy; 2024 TechStore. All Rights Reserved.</p>
+      <p>&copy; 2024 CoderPad. All Rights Reserved.</p>
       <a href="#" class="text-white">Privacy Policy</a> | 
       <a href="#" class="text-white">Terms of Service</a>
     </div>

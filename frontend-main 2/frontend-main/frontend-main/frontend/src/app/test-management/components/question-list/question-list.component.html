@@ -1,4 +1,5 @@
 <div class="question-list-container">
+  <button (click)="goBack()" class="back"><i class="fa-solid fa-arrow-left"></i></button>
   <h2>Question List</h2>
   <table>
     <thead>
@@ -11,8 +12,8 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let question of questions">
-        <td>{{ question.id }}</td>
+      <tr *ngFor="let question of questions; let i = index">
+        <td>{{ i+1 }}</td>
         <td>{{ question.questionDescription }}</td>
         <td>{{ question.quesType }}</td>
         <td>{{ question.difficulty }}</td>
@@ -24,4 +25,4 @@
   </table>
 </div>
 
-<!-- <p>Welcome To Question List!</p> -->
+

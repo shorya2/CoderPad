@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TestService } from 'src/app/services/test/test.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-update-test',
@@ -16,7 +17,8 @@ export class UpdateTestComponent {
     private route: ActivatedRoute,
     private fb: FormBuilder,
     private testService: TestService, // Inject the service
-    private router: Router
+    private router: Router,
+    private location: Location
   ) {
     this.testForm = this.fb.group({
       createdBy: ['', Validators.required],
@@ -56,6 +58,7 @@ export class UpdateTestComponent {
       this.testService.updateTest(this.testId, updatedTestData).subscribe({
         next: () => {
           alert('Test updated successfully!');
+          this.location.back();
           // this.router.navigate(['/test-management']); // Navigate back to a relevant page
         },
         error: (err) => console.error('Error updating test:', err)

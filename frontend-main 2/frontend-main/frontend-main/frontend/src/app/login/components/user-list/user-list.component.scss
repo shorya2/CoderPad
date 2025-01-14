@@ -1,10 +1,10 @@
 .user-list-container {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 20px;
-  background-color: #f9f9f9;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
+  width: calc(100% - 20px); /* Full width minus equal margins */
+  margin: 0 auto; /* Center the container horizontally */
+  padding: 20px; /* Maintain some padding for content spacing */
+  background-color: #fff; /* Optional: Set to match the page background */
+  box-shadow: none; /* Remove box shadow */
+  border-radius: 0; /* Remove rounded corners */
 }
 
 .title {
@@ -24,13 +24,13 @@
 .styled-table {
   width: 100%;
   border-collapse: collapse;
-  margin: 20px 0;
+  margin: 0; /* Remove extra margins */
   font-size: 16px;
   text-align: left;
 }
 
 .styled-table thead tr {
-  background-color: #007bff;
+  background-color: #444;
   color: #fff;
   text-align: center;
 }
@@ -58,7 +58,6 @@
   margin-right: 5px;
 }
 
-
 .btn-delete {
   background-color: #dc3545;
   color: #fff;
@@ -76,7 +75,7 @@
   margin-top: 20px;
 }
 
-.btn-td{
+.btn-td {
   display: flex;
   justify-content: center;
 }
@@ -86,7 +85,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  background-color: #007bff;
+  background-color: #333;
 }
 
 .navbar-left {
@@ -95,13 +94,13 @@
 }
 
 .navbar-right {
-  margin-left: auto; /* Push the User button to the right */
-  position: relative; /* Positioning context for the dropdown */
+  margin-left: auto;
+  position: relative;
 }
 
 .nav-button {
   color: white;
-  background-color: #0056b3;
+  background-color: #444;
   border: none;
   padding: 10px 20px;
   margin: 0 10px;
@@ -111,14 +110,13 @@
 }
 
 .nav-button:hover {
-  background-color: #003d80;
+  background-color: #555;
 }
 
 .nav-button:focus {
   outline: none;
 }
 
-/* Dropdown styling */
 .dropdown {
   position: relative;
 }
@@ -127,8 +125,7 @@
   position: absolute;
   right: 0;
   top: 100%;
-  background-color: #ffffff;
-  border: 1px solid #ccc;
+  background-color: #333;
   border-radius: 5px;
   display: none;
   flex-direction: column;
@@ -138,9 +135,9 @@
 }
 
 .dropdown-item {
-  background-color: #ffffff;
-  color: #333;
-  padding: 10px 15px;
+  background-color: #444;
+  color: white;
+  padding: 10px 20px;
   border: none;
   cursor: pointer;
   text-align: left;
@@ -148,10 +145,70 @@
 }
 
 .dropdown-item:hover {
-  background-color: #007bff;
+  background-color: #555;
 }
 
-/* Show the dropdown when the parent is hovered */
 .dropdown:hover .dropdown-menu {
   display: flex;
+}
+
+.search-container {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: flex-start; /* Align search container elements to the left */
+  gap: 10px;
+}
+
+.search-bar {
+  flex-grow: 1; /* Allow the search bar to expand */
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.btn-search {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-search:hover {
+  background-color: #0056b3;
+}
+
+.hero-section {
+  height: 10vh;
+}
+
+
+.footer {
+  background-color: #333; /* Dark background */
+  color: #fff; /* White text */
+  text-align: center;
+  padding: 15px 20px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  position: fixed; /* Fixed at the bottom of the page */
+  bottom: 0; /* Aligns the footer at the very bottom */
+  width: 100%; /* Ensures it spans the entire width */
+  left: 0; /* Ensures it stays within the page boundaries */
+  z-index: 1000; /* Ensures the footer is above other elements */
+}
+
+.footer p {
+  margin: 0;
+}
+
+.footer a {
+  color: #66d9ff;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.footer a:hover {
+  text-decoration: underline;
 }

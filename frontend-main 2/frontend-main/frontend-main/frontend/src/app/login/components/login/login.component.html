@@ -5,9 +5,9 @@
       <label for="username">User Email:</label>
       <input
         type="text"
-        id="useremail"
-        [(ngModel)]="useremail"
-        name="useremail"
+        id="email"
+        [(ngModel)]="email"
+        name="email"
         placeholder="Enter your Email"
         class="form-input" required #emailField="ngModel"/>
         <div class="error" *ngIf="emailField.invalid && emailField.touched">
@@ -33,8 +33,9 @@
       class="btn-primary" [disabled]="loginForm.invalid">
       Login
     </button>
-  </form>
-  <button type="button" (click)="loginWithGoogle()" class="btn-primary"> Login with Google </button>
+  
+  <!-- <button type="button" (click)="loginWithGoogle()" class="btn-primary"> Login with Google </button> -->
+</form>
   <p>
     Don't Have An Account? <a class="signup-link" routerLink="/signup"> SignUp</a>
   </p>

@@ -1,11 +1,44 @@
 .test-questions-container {
-  max-width: 800px;
-  margin: 20px auto;
+  /* General layout and spacing for the container */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background-color: #f9f9f9;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  width: calc(100% - 40px); /* Full width minus margins */
+  box-sizing: border-box; /* Include padding and border in width calculations */
+  background-color: #f8f9fa; /* Light background for the entire section */
+  height: 100vh; /* Full page height */
+
+  .back {
+    background-color: #007bff; 
+    color: white; 
+    border: none; 
+    padding: 10px 20px; 
+    border-radius: 4px; 
+    font-size: 14px; 
+    font-weight: 500; /* Medium font weight for better readability */
+    cursor: pointer; 
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition for hover effects */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    margin-bottom: 20px; /* Add spacing below the back button */
+  }
+  
+  .back:hover {
+    background-color: #0056b3; 
+    transform: scale(1.05); 
+  }
+  
+  .back:focus {
+    outline: none; 
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); 
+  }
+  
+  .back:active {
+    background-color: #003d82; 
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); /* Adjust shadow for pressed state */
+    transform: scale(1); /* Remove zoom effect when pressed */
+  }
 
   .add-question-btn {
     background-color: #007bff;
@@ -20,12 +53,16 @@
   h2 {
     text-align: center;
     margin-bottom: 10px;
+    width: 100%; /* Ensure the heading spans the full width */
+    font-size: 24px;
+    font-weight: bold;
   }
 
   p {
     text-align: center;
     color: #555;
     margin-bottom: 20px;
+    width: 100%;
   }
 
   table {
@@ -60,9 +97,10 @@
         }
       }
     }
+    
     .delete-button {
       padding: 5px 10px;
-      margin-right: 10px;
+      margin-top: 5px;
       background-color: #e74c3c;
       color: white;
       border: none;
@@ -77,6 +115,7 @@
 
     .update-button {
       padding: 5px 10px;
+      margin-right: 10px;
       margin-top: 5px;
       background-color: green;
       color: white;

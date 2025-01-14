@@ -5,6 +5,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { AdminApprovalComponent } from './components/admin-approval/admin-approval.component';
 import { UserListComponent } from './components/user-list/user-list.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { OtpLoginComponent } from './components/otp-login/otp-login.component';
 
 
 const routes: Routes = [
@@ -13,7 +14,9 @@ const routes: Routes = [
   { path: 'users', component: UserListComponent },
   { path: 'profile', component: ProfileComponent},
   { path: 'admin-approval', component: AdminApprovalComponent },
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path:'otp-login', component:OtpLoginComponent},
+  // { path: '', redirectTo: 'login', pathMatch: 'full' },
+  {path:'', redirectTo:'otp-login',pathMatch:'full'}
 ];
 
 @NgModule({

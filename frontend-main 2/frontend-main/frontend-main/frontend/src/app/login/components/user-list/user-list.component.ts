@@ -10,6 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 export class UserListComponent {
   users: any[] = [];
   isLoading = false;
+  searchTerm: string =''
 
   constructor(private userService: UserService, private toastr: ToastrService) {}
 
@@ -17,23 +18,55 @@ export class UserListComponent {
     this.getUsers();
   }
 
-  // Fetch Users
-  getUsers(): void {
-    this.isLoading = true;
-    this.userService.getAllUsers().subscribe({
-      next: (data) => {
-        this.users = data;
-        this.isLoading = false;
-      },
-      error: (error) => {
-        this.toastr.error('Failed to load users.', 'Error');
-        this.isLoading = false;
-      }
-    });
+ // Fetch Users
+ getUsers(): void {
+  console.log("hi");
+  this.isLoading = true;
+  this.userService.getAllUsers().subscribe({
+    next: (data) => {
+      this.users = data;
+      this.isLoading = false;
+    },
+    error: (error) => {
+      console.log(error);
+      this.toastr.error('Failed to load users.', 'Error');
+      this.isLoading = false;
+    }
+  });
+}
+
+searchUser(): void {
+  if (!this.searchTerm.trim()) {
+    this.toastr.warning('Please enter a username to search.', 'Warning');
+    return;
   }
 
+  this.isLoading = true;
+  this.userService.getAllUsers().subscribe({
+    next: (data) => {
+      const matchedUser = data.find(
+        (user: any) =>
+          user.userName.toLowerCase() === this.searchTerm.toLowerCase()
+      );
+
+      if (matchedUser) {
+        this.users = [matchedUser]; // Show only the matched user
+      } else {
+        this.users = []; // Clear the list if no user matches
+        this.toastr.info('No user found with the given username.', 'Info');
+      }
+
+      this.isLoading = false;
+    },
+    error: (error) => {
+      console.error(error);
+      this.toastr.error('Failed to search user.', 'Error');
+      this.isLoading = false;
+    },
+  });
+}
 //Delete
-  deleteUser(id: string): void {
+  deleteUser(id: number): void {
     if (confirm('Are you sure you want to delete this user?')) {
       this.userService.deleteUser(id).subscribe({
         next: () => {
@@ -49,8 +82,8 @@ export class UserListComponent {
 
 
   // Edit user (you can implement an edit form modal or redirect to an edit page)
-  editUser(id:string): void {
+  editUser(id:number): void {
     console.log('Edit user with ID:', id);
-    // Implement edit functionality (redirect to edit page or show a modal)
+    
   }
 }

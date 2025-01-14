@@ -8,16 +8,12 @@ import { TestService } from 'src/app/services/test/test.service';
   styleUrls: ['./assignedc.component.scss']
 })
 export class AssignedcComponent {
-  // tests = [
-  //   { sNo: 1, description: 'Math Test', duration: '60 mins' },
-  //   { sNo: 2, description: 'Science Test', duration: '45 mins' },
-  //   { sNo: 3, description: 'History Test', duration: '30 mins' },
-  // ];
   assignedTests: any[] = [];
-  constructor(private testService: TestService,private router: Router) {}
+
+  constructor(private testService: TestService, private router: Router) {}
 
   ngOnInit(): void {
-    // Fetch all assigned tests
+    // Fetch all assigned tests for the current user
     this.testService.getAssignedTests().subscribe(
       (data) => {
         this.assignedTests = data;
@@ -29,9 +25,9 @@ export class AssignedcComponent {
     );
   }
 
+  // Start the test by navigating to the test page
   startTest(test: any): void {
     console.log('Starting test:', test);
-    // Add logic to handle test start, e.g., navigate to the test page
-     this.router.navigate([`/attempt-test/${test.id}`]);
+    this.router.navigate([`/attempt-test/${test.id}`]);
   }
 }

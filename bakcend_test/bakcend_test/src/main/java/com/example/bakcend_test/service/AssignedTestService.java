@@ -7,6 +7,7 @@ import com.example.bakcend_test.repository.AssignedTestRepository;
 import com.example.bakcend_test.repository.AttemptedTestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -38,5 +39,10 @@ public class AssignedTestService {
     // Remove an assigned test
     public void removeAssignedTest(String id) {
         assignedTestRepository.deleteById(id);
+    }
+
+    @Transactional
+    public void removeAssignedTestByEmailAndCreatedBy(String email, String createdBy) {
+        assignedTestRepository.deleteByEmailAndCreatedBy(email, createdBy);
     }
 }

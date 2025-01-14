@@ -1,145 +1,204 @@
 
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    background-color: #333;
-    position: relative;
-  }
-  
-  /* Navbar Sections */
-  .navbar-left {
-    display: flex;
-    align-items: center;
-  }
-  
-  .navbar-right {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    display: flex;
-    align-items: center;
-  }
-  
-  /* Navbar Buttons */
-  .nav-button {
-    color: white;
-    background-color: #444;
-    border: none;
-    padding: 10px 20px;
-    margin: 0 10px;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-  
-  .nav-button:hover {
-    background-color: #555;
-  }
-  
-  /* Dropdown Styling */
-  .dropdown {
-    position: relative;
-  }
-  
-  .dropdown-menu {
-    display: none;
-    position: absolute;
-    right: 0;
-    top: 100%;
-    background-color: #444;
-    border: 1px solid #555;
-    border-radius: 5px;
-    flex-direction: column;
-    min-width: 150px;
-    z-index: 1000;
-  }
-  
-  .dropdown-menu .dropdown-item {
-    color: white;
-    background-color: transparent;
-    border: none;
-    text-align: left;
-    padding: 10px 20px;
-    cursor: pointer;
-    width: 100%;
-  }
-  
-  .dropdown-menu .dropdown-item:hover {
-    background-color: #555;
-  }
-  
-  /* Show Dropdown on Hover */
-  .dropdown:hover .dropdown-menu {
-    display: flex;
-  }
-
 /* General styles for the container */
+body {
+  padding: 20px;
+  background-color: #f8f9fa;
+  font-family: Arial, sans-serif;
+  margin: 0;  /* Ensure no extra margin around the body */
+  height: 100%; /* Full height */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navbar Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #333;
+  position: relative;
+}
+
+/* Navbar Sections */
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-right {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+}
+
+/* Navbar Buttons */
+.nav-button {
+  color: white;
+  background-color: #444;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.nav-button:hover {
+  background-color: #555;
+}
+
+/* Dropdown Styling */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background-color: #444;
+  border: 1px solid #555;
+  border-radius: 5px;
+  flex-direction: column;
+  min-width: 150px;
+  z-index: 1000;
+}
+
+.dropdown-menu .dropdown-item {
+  color: white;
+  background-color: transparent;
+  border: none;
+  text-align: left;
+  padding: 10px 20px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.dropdown-menu .dropdown-item:hover {
+  background-color: #555;
+}
+
+/* Show Dropdown on Hover */
+.dropdown:hover .dropdown-menu {
+  display: flex;
+}
+
+/* Table Styles */
 h2 {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    color: #333;
-    margin-bottom: 20px;
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  /* Styling the table */
-  table {
-    width: 80%;
-    margin: 0 auto;
-    border-collapse: separate; /* Separate mode for visible spacing between cells */
-    border-spacing: 0; /* Remove extra spacing around borders */
-    font-family: Arial, sans-serif;
-    font-size: 16px;
-    border: 1px solid #ccc; /* Add border around the table */
-  }
-  
-  /* Styling the table header */
-  table thead {
-    background-color: #5c5959; /* Darker background color */
-    color: #fff; /* White text for contrast */
-  }
-  
-  table th {
-    padding: 12px;
-    text-align: left;
-    border-right: 1px solid #ccc; /* Add vertical line between columns */
-  }
-  
-  table th:last-child {
-    border-right: none; /* Remove border for the last column */
-  }
-  
-  /* Styling table cells */
-  table td {
-    padding: 12px;
-    border-right: 1px solid #ccc; /* Add vertical line between columns */
-    text-align: left;
-  }
-  
-  table td:last-child {
-    border-right: none; /* Remove border for the last column */
-  }
-  
-  /* Alternating row colors */
-  table tbody tr:nth-child(odd) {
-    background-color: #f9f9f9;
-  }
-  
-  table tbody tr:nth-child(even) {
-    background-color: #fff;
-  }
-  
-  /* Add hover effect */
-  table tbody tr:hover {
-    background-color: #f1f1f1;
-  }
-  
-  /* Add some margin and padding to the page */
-  body {
-    padding: 20px;
-    background-color: #f8f9fa;
-    font-family: Arial, sans-serif;
-  }
+  font-family: Arial, sans-serif;
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Styling the table */
+table {
+  width: 100%;
+  margin: 20px 0;  /* Add spacing from other elements */
+  border-collapse: separate; /* Separate mode for visible spacing between cells */
+  border-spacing: 0; /* Remove extra spacing around borders */
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  border: 1px solid #ccc; /* Add border around the table */
+  max-width: 100%; /* Full width */
+  box-sizing: border-box; /* Ensure padding doesn't overflow */
+}
+
+/* Styling the table header */
+table thead {
+  background-color: #f2f2f2; /* Darker background color */
+  color: black; /* White text for contrast */
+}
+
+table th {
+  padding: 12px;
+  text-align: left;
+  border-right: 1px solid #ccc; /* Add vertical line between columns */
+}
+
+table th:last-child {
+  border-right: none; /* Remove border for the last column */
+}
+
+/* Styling table cells */
+table td {
+  padding: 12px;
+  border-right: 1px solid #ccc; /* Add vertical line between columns */
+  text-align: left;
+}
+
+table td:last-child {
+  border-right: none; /* Remove border for the last column */
+}
+
+/* Alternating row colors */
+table tbody tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+table tbody tr:nth-child(even) {
+  background-color: #fff;
+}
+
+/* Add hover effect */
+table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Additional page styles for proper spacing */
+.container {
+  max-width: 1200px; /* Limit the max width of the content */
+  margin: 0 auto;  /* Center the content */
+  padding: 20px;
+}
+
+/* Adding margins to body and proper padding */
+body {
+  padding: 20px;
+  background-color: #f8f9fa;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center; /* Center the content */
+}
+
+.hero-section {
+  height: 55vh;
+}
+
+.footer {
+  background-color: #333; /* Dark background */
+  color: #fff; /* White text */
+  text-align: center;
+  padding: 15px 20px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  position: fixed; /* Fixed at the bottom of the page */
+  bottom: 0; /* Aligns the footer at the very bottom */
+  width: 100%; /* Ensures it spans the entire width */
+  left: 0; /* Ensures it stays within the page boundaries */
+  z-index: 1000; /* Ensures the footer is above other elements */
+}
+
+.footer p {
+  margin: 0;
+}
+
+.footer a {
+  color: #66d9ff;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
   

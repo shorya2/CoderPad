@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class TestService {
   // private baseUrl = 'http://localhost:3000/tests';
-  // private url = 'http://localhost:3000';
+  private mockUrl = 'http://localhost:3000';
   // private attmptUrl = 'http://localhost:3000/AttemptedTest';
 
   private baseUrl = 'http://localhost:8081/api/tests';
@@ -20,6 +20,10 @@ export class TestService {
   getAllTests(): Observable<any[]> {
     return this.http.get<any[]>(this.baseUrl);
   }
+
+  // getAllUsers(): Observable<any[]> {
+  //   return this.http.get<any[]>(`${this.url}/api/users`);
+  // }
 
   // Fetch a test by ID
   getTestById(id: string): Observable<any> {
@@ -37,8 +41,9 @@ export class TestService {
   }
 
    // Add a test to assignedTests
-   assignTest(test: any): Observable<any> {
+  assignTest(test: any): Observable<any> {
     return this.http.post<any>(`${this.url}/api/assigned-tests`, test);
+    //return this.http.post<any>(`${this.mockUrl}/assignedTests`,test);
   }
 
   // Fetch all assigned tests from the server
@@ -57,13 +62,28 @@ export class TestService {
   // }
 
    // Remove test from assigned tests
-   removeAssignedTest(testId: string): Observable<void> {
-    return this.http.delete<void>(`${this.url}/api/assigned-tests/${testId}`);
+   removeAssignedTest(email: string,createdBy: string): Observable<void> {
+    return this.http.delete<void>(`${this.url}/api/assigned-tests/by-email-and-createdBy?email=${email}&createdBy=${createdBy}`);
   }
 
   getAttemptedTests(): Observable<any[]> {
     return this.http.get<any[]>(this.attmptUrl);
   }
+
+  sendTestEmail(userEmail: string): Observable<any> {
+    return this.http.get(`${this.url}/api/send-email?userEmail=${userEmail}`);
+}
+
+
+  verifyOtp(otpData :{email: string, otp: string} ): Observable<any> {
+    console.log(otpData);
+    return this.http.post(`${this.url}/otp/verify-otp`,otpData);
+  }
+ 
+  getAssignedTestsByEmail(userEmail: string): Observable<any> {
+    return this.http.get<any>(`${this.url}/api/assigned-tests/assigned-tests/${userEmail}`);
+  }
+  
 
 }
 

@@ -7,6 +7,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AdminApprovalComponent } from './components/admin-approval/admin-approval.component';
 import { UserListComponent } from './components/user-list/user-list.component';
+import { OtpLoginComponent } from './components/otp-login/otp-login.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { UserListComponent } from './components/user-list/user-list.component';
     SignupComponent,
     ProfileComponent,
     AdminApprovalComponent,
-    UserListComponent
+    UserListComponent,
+    OtpLoginComponent
   ],
   imports: [
     CommonModule,

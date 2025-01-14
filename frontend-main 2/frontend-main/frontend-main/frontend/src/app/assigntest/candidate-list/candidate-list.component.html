@@ -1,0 +1,62 @@
+<div class="navbar">
+    <div class="navbar-left">
+      <button routerLink="/test" class="nav-button"><i class="fa-solid fa-house"></i></button>
+      <button routerLink="/assignta" class="nav-button">Send Tests</button>
+      <button routerLink="/roles/reports" class="nav-button">Reports</button>
+    </div>
+  
+    <div class="navbar-right">
+      <div class="dropdown">
+        <button class="nav-button dropdown-button"><i class="fa-solid fa-user"></i></button>
+        <div class="dropdown-content">
+          <a routerLink="/profile">Profile</a>
+          <a routerLink="/login">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<div class="candidate-list-container">
+    <h2>Candidate List</h2>
+  
+    <table>
+      <thead>
+        <tr>
+          <th>S.No.</th>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let candidate of candidates; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ candidate.userName }}</td>
+          <td>{{ candidate.email }}</td>
+          <td>
+            <button class="select-button"
+              (click)="selectCandidate(candidate.email)" 
+              [disabled]="selectedCandidates.includes(candidate.email)">
+              Select
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <button 
+      (click)="assignTestToSelectedCandidates()" 
+      class="done-button" 
+      [disabled]="selectedCandidates.length === 0">
+      Done
+    </button>
+</div>
+
+<footer class="footer">
+    <div>
+      <p>&copy; 2025 CoderPad. All Rights Reserved.</p>
+      <a href="#" class="text-white">Privacy Policy</a> | 
+      <a href="#" class="text-white">Terms of Service</a>
+    </div>
+  
+  </footer>

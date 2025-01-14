@@ -1,13 +1,13 @@
 <div class="navbar">
   <div class="navbar-left">
-    <button routerLink="/create-test" class="nav-button">Create Tests</button>
+    <button routerLink="/data" class="nav-button"><i class="fa-solid fa-house"></i></button>    
     <button routerLink="/test-list" class="nav-button">Tests</button>
     <button routerLink="/create-question" class="nav-button">Create Questions</button>
   </div>
 
   <div class="navbar-right">
     <div class="dropdown">
-      <button class="nav-button">User</button>
+      <button class="nav-button"><i class="fa-solid fa-user"></i></button>
       <div class="dropdown-content">
         <a routerLink="/profile">Profile</a>
         <a routerLink="/login">Logout</a>
@@ -18,8 +18,9 @@
 
 
 <div class="create-question-container">
+  <button (click)="goBack()" class="back"><i class="fa-solid fa-arrow-left"></i></button>
   <h1>Create New Question</h1>
-
+  
   <form [formGroup]="questionForm" (ngSubmit)="saveQuestion()">
     <div class="form-group">
       <label for="questionDescription">Question Description</label>
@@ -62,7 +63,14 @@
       <label for="option4">Option 4</label>
       <input type="text" id="option4" formControlName="option4" />
     </div>
-
+    <div class="form-group" *ngIf="questionForm.value.quesType === 'sql'">
+      <label for="ddlCommands">DDL Commands</label>
+      <textarea id="ddlCommands" formControlName="ddlCommands" placeholder="Enter DDL Commands"></textarea>
+    </div>
+    <div class="form-group" *ngIf="questionForm.value.quesType === 'sql'">
+      <label for="dmlCommands">DML Commands</label>
+      <textarea id="dmlCommands" formControlName="dmlCommands" placeholder="Enter DML Commands"></textarea>
+    </div>
     <div class="form-group">
       <label for="correctAnswer">Correct Answer</label>
       <input type="text" id="correctAnswer" formControlName="correctAnswer" />
@@ -78,5 +86,14 @@
     </button>
   </form>
 </div>
+<div class="hero-section"></div>
 
+  <footer class="footer">
+    <div>
+      <p>&copy; 2025 CoderPad. All Rights Reserved.</p>
+      <a href="#" class="text-white">Privacy Policy</a> | 
+      <a href="#" class="text-white">Terms of Service</a>
+    </div>
+  
+  </footer>
 <!-- <p>Welcome To Create Question!</p> -->

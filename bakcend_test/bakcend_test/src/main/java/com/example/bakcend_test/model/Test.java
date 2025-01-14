@@ -1,7 +1,10 @@
 package com.example.bakcend_test.model;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -9,14 +12,21 @@ import java.util.UUID;
 public class Test {
 
     @Id
-    private String id; // Unique identifier for the test
-    private String createdBy; // ID of the user who created the test
-    private String testName; // Name of the test
-    private String testDescription; // Description of the test
-    private int duration; // Duration of the test in minutes
+    private String id;
 
-//    @OneToMany(cascade = CascadeType.ALL)
-//    private List<Question> questions; // List of questions in the test
+    @CreationTimestamp
+    @Column(name = "created_date", updatable = false)
+    private LocalDateTime createdDate;
+
+    @UpdateTimestamp
+    @Column(name = "modified_date")
+    private LocalDateTime modifiedDate;
+
+    private String createdBy;
+    private String testName;
+    private String testDescription;
+    private int duration;
+
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
@@ -36,6 +46,22 @@ public class Test {
     // Getters and Setters
     public String getId() {
         return id;
+    }
+
+    public LocalDateTime getModifiedDate() {
+        return modifiedDate;
+    }
+
+    public void setModifiedDate(LocalDateTime modifiedDate) {
+        this.modifiedDate = modifiedDate;
+    }
+
+    public LocalDateTime getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(LocalDateTime createdDate) {
+        this.createdDate = createdDate;
     }
 
     public void setId(String id) {

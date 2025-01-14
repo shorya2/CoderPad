@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { QuestionService } from 'src/app/services/question/question.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-create-question',
@@ -10,7 +11,7 @@ import { QuestionService } from 'src/app/services/question/question.service';
 export class CreateQuestionComponent {
   questionForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private questionService: QuestionService) {
+  constructor(private fb: FormBuilder, private questionService: QuestionService,private location: Location) {
     this.questionForm = this.fb.group({
       questionDescription: ['', Validators.required],
       quesType: ['mcq', Validators.required],
@@ -19,8 +20,13 @@ export class CreateQuestionComponent {
       option2: ['null', Validators.required],
       option3: ['null', Validators.required],
       option4: ['null', Validators.required],
+      ddlCommands: ['null',Validators.required],
+      dmlCommands: ['null',Validators.required],
       correctAnswer: ['', Validators.required],
     });
+  }
+  goBack(){
+    this.location.back();
   }
 
   saveQuestion() {

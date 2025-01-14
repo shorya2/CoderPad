@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { QuestionService } from 'src/app/services/question/question.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-update-question',
@@ -16,7 +17,8 @@ export class UpdateQuestionComponent {
     private fb: FormBuilder,
     private questionService: QuestionService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private location : Location
   ) {}
 
   ngOnInit(): void {
@@ -67,5 +69,8 @@ export class UpdateQuestionComponent {
       });
 
     }
+  }
+  goBack(){
+    this.location.back();
   }
 }

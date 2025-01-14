@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TestService } from 'src/app/services/test/test.service';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-attempted-test',
@@ -8,6 +9,9 @@ import { TestService } from 'src/app/services/test/test.service';
   styleUrls: ['./attempted-test.component.scss']
 })
 export class AttemptedTestComponent {
+  userId!:number;
+  userDetails: any = null;
+  candidateId: string = ''
   testId: string = "e274";
   testDetails: any = null;
   testSubmitted !: boolean;
@@ -20,13 +24,17 @@ export class AttemptedTestComponent {
   constructor(
     private route: ActivatedRoute,
     private testService: TestService,
+    private userService: UserService,
     private router: Router
   ) {}
 
   ngOnInit(): void {
+    this.userId = parseInt(localStorage.getItem('userId') || 'null');
+    this.candidateId = this.userId.toString();
     this.testId = this.route.snapshot.params['id'];
     this.testSubmitted = false;
     this.loadTestDetails();
+    this.loadUserDetails();
     this.loadAssignedTests();
   }
 
@@ -49,7 +57,16 @@ export class AttemptedTestComponent {
       error: (error) => console.error('Error fetching test:', error),
     });
   }
-
+ // Load the User Details
+  loadUserDetails() : void{
+    this.userService.getUserById(this.userId).subscribe({
+        next: (candidate) => {
+          this.userDetails = candidate;
+          console.log(candidate);
+        },
+        error: (error) => console.error('Error Fetching Candidate Details:',error),
+    })
+  }
   getOptions(question: any): string[] {
     return [question.option1, question.option2, question.option3, question.option4];
   }
@@ -88,10 +105,7 @@ export class AttemptedTestComponent {
 
     if (this.testSubmitted) return;
     this.testSubmitted = true;
-
-    const candidateId = "8765";
     const attemptedTest = {
-      candidateId,
       testId: this.testId,
       questions: this.questions.map((question) => ({
         questionDescription: question.questionDescription,
@@ -103,13 +117,16 @@ export class AttemptedTestComponent {
     this.testService.submitAttemptedTest(attemptedTest).subscribe({
       next: () => {
         console.log('Test submitted successfully');
+        alert("Test Has Been Submitted!!");
         this.router.navigate(['/assignedc']); // Navigate back
       },
       error: (error) => console.error('Error submitting test:', error),
     });
     
      // Remove the test from the assigned tests list
-     this.testService.removeAssignedTest(this.testId).subscribe(() => {
+     this.testService.removeAssignedTest(this.userDetails.email,this.testDetails.createdBy).subscribe(() => {
+      console.log(this.userDetails.email);
+      console.log(this.testDetails.createdBy);
       this.loadAssignedTests(); // Refresh the assigned tests list
     });
 

@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  background-color: #282c34;
+  background-color: #333;
 }
 
 .navbar-left, .navbar-right {
@@ -13,7 +13,7 @@
 
 .nav-button {
   color: white;
-  background-color: #4caf50;
+  background-color: #444;
   border: none;
   padding: 10px 20px;
   margin: 0 10px;
@@ -22,9 +22,7 @@
   text-decoration: none;
 }
 
-.nav-button:hover {
-  background-color: #45a049;
-}
+
 
 .nav-button:focus {
   outline: none;
@@ -45,15 +43,16 @@
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   z-index: 1;
   border-radius: 5px;
+  
 }
 
 /* Links inside dropdown */
 .dropdown-content a {
-  color: #333;
-  padding: 10px 15px;
+  color: white;
+  background-color: #333;
+  padding: 10px 20px;
   text-decoration: none;
   display: block;
-  border-bottom: 1px solid #ddd;
 }
 
 /* Last link doesn't need border */
@@ -63,7 +62,7 @@
 
 /* Hover effects for links */
 .dropdown-content a:hover {
-  background-color: #4caf50;
+  background-color: #444;
 }
 
 /* Show dropdown content on hover */
@@ -71,30 +70,71 @@
   display: block;
 }
 
+/* Set body and html to take full height */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Page container to manage the layout */
+.page-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Full height of the viewport */
+}
+
+/* Test list container should take up all available space */
 .test-list-container {
-  max-width: 1000px;
-  margin: 40px auto;
-  padding: 30px;
-  background: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  flex: 1; /* Take all remaining space above the footer */
+  overflow-y: auto; /* Enable scrolling if content overflows */
+  padding: 20px;
+  background-color: #f9f9f9; /* Optional background color */
+}
 
+/* Footer stays at the bottom */
+// .footer {
+//   background-color: #333;
+//   color: #fff;
+//   text-align: center;
+//   padding: 15px 20px;
+//   font-family: Arial, sans-serif;
+//   font-size: 14px;
+// }
+
+// .footer p {
+//   margin: 0;
+// }
+
+// .footer a {
+//   color: #66d9ff;
+//   text-decoration: none;
+//   margin: 0 5px;
+// }
+
+// .footer a:hover {
+//   text-decoration: underline;
+// }
+
+
+.test-list-container {
+  max-width: 100%; /* Allow full width */
+  margin: 0; /* Remove margins */
+  padding: 0; /* Remove padding */
+  background: none; /* Remove background color */
+  box-shadow: none; /* Remove box shadow */
+  border-radius: 0; /* Remove rounded corners */
+  font-family: Arial, sans-serif;
+  font-size: 3rem;
   .header {
-    text-align: center;
-    font-size: 2rem;
-    font-weight: 700;
+    text-align: left;
+    font-size: 2rem; /* Keep header size manageable */
+    font-weight: 600;
     color: #333;
-    margin-bottom: 30px;
-  }
-
-  .no-tests {
-    text-align: center;
-    font-size: 16px;
-    color: #888;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 5px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 0px; /* Keep some space below the header */
+    margin-left: 10px;
   }
 
   .test-table-container {
@@ -102,93 +142,178 @@
   }
 
   .test-list-table {
-    width: 100%;
-    border-collapse: collapse;
-    table-layout: fixed;
-    border-radius: 8px;
-    overflow: hidden;
-
+    width: 100%; /* Stretch table to full width */
+    border-collapse: collapse; /* Collapse table borders for a neat look */
+  
     thead {
       background-color: #f4f4f4;
-      font-weight: 600;
-      color: #555;
-
+  
       .table-header th {
-        padding: 12px;
+        padding: 14px; /* Adjust padding for better readability */
         text-align: left;
-        font-size: 16px;
+        font-size: 16px; /* Moderate font size */
+        border-left: 1px solid #ddd; /* Add left border */
+        border-right: 1px solid #ddd; /* Add right border */
       }
     }
-
+  
     tbody {
       tr {
         border-bottom: 1px solid #e0e0e0;
       }
-
+  
       .test-item {
-        transition: background-color 0.3s ease;
-
         &:hover {
           background-color: #f9f9f9;
         }
-
+  
         td {
-          padding: 10px;
-          font-size: 14px;
-          color: #555;
+          padding: 8px; /* Moderate padding for readability */
+          font-size: 14px; /* Standard font size */
           text-align: left;
-          word-wrap: break-word;
+          border-left: 1px solid #ddd; /* Add left border between columns */
+          border-right: 1px solid #ddd; /* Add right border between columns */
         }
       }
     }
-
+  
     th, td {
       text-align: center;
       padding: 10px;
+      border-left: 1px solid #ddd; /* Border between columns */
+      border-right: 1px solid #ddd; /* Border between columns */
+    }
+  
+    /* Custom column width for Description, Duration, and Action columns */
+    .description-column {
+      width: 30%; /* Make Description column wider */
+      max-width: 60%; /* Optional max width to prevent it from getting too large */
+    }
+  
+    .duration-column {
+      width: 15%; /* Set Duration column width */
+    }
+  
+    .action-column {
+      width: 15%; /* Set Action column width */
     }
   }
+  
+  
 
-  .update-button {
-    padding: 8px 12px;
-    font-size: 14px;
-    font-weight: bold;
-    color: #fff;
-    background-color: #007bff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+  .update-button, .details-button {
+    padding: 8px 12px; /* Adjust button padding */
+    font-size: 14px; /* Standard font size */
+    margin: 0 5px; /* Keep buttons spaced properly */
+    background-color: #444; /* Dark background */
+    color: white; /* White text */
+    border-radius: 5px; /* Slightly rounded corners */
+    border: none; /* Remove default border */
+    cursor: pointer; /* Add pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
 
-    &:hover {
-      background-color: #0056b3;
-      transform: translateY(-2px);
-    }
+.update-button:hover, .details-button:hover {
+    background-color: #555; /* Slightly lighter background on hover */
+}
 
-    &:focus {
-      outline: none;
-    }
-  }
-  .details-button{
-    padding: 8px 12px;
-    font-size: 14px;
-    font-weight: bold;
-    color: #fff;
-    background-color: green;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-left: 5px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+.btn.btn-primary {
+  background-color: #444; /* Dark background color */
+  color: white; /* White text */
+  padding: 10px 20px; /* Adjust padding for button size */
+  border: none; /* Remove default border */
+  border-radius: 5px; /* Slightly rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  text-decoration: none; /* Remove underline for routerLink */
+  font-size: 14px; /* Adjust font size */
+  transition: background-color 0.3s ease; /* Smooth background color change on hover */
+}
 
-    &:hover {
-      background-color: #0056b3;
-      transform: translateY(-2px);
-    }
+.btn.btn-primary:hover {
+  background-color: #555; /* Lighter background color on hover */
+}
 
-    &:focus {
-      outline: none;
-    }
-  }
+}
+
+.actions {
+  margin-bottom: 20px; /* Maintain space for Create Test button */
+  text-align: right;
+}
+
+.hero-section {
+  display: none; /* Remove the hero section */
 }
 
 
+/* Ensure the entire page takes up full height */
+body, html {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Wrapper for content and footer */
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure the container takes the full height of the viewport */
+}
+
+.main-content {
+  flex: 1; /* Pushes the footer to the bottom */
+}
+
+/* Footer styles */
+// .footer {
+//   background-color: #333; /* Dark background */
+//   color: #fff; /* White text */
+//   text-align: center;
+//   padding: 15px 20px;
+//   font-family: Arial, sans-serif;
+//   font-size: 14px;
+//   margin-top: auto; /* Ensures footer stays at the bottom */
+// }
+
+// .footer p {
+//   margin: 0;
+// }
+
+// .footer a {
+//   color: #66d9ff; /* Light blue for links */
+//   text-decoration: none;
+//   margin: 0 5px;
+// }
+
+// .footer a:hover {
+//   text-decoration: underline;
+// }
+
+
+.footer {
+  background-color: #333; /* Dark background */
+  color: #fff; /* White text */
+  text-align: center;
+  padding: 15px 20px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  position: fixed; /* Fixed at the bottom of the page */
+  bottom: 0; /* Aligns the footer at the very bottom */
+  width: 100%; /* Ensures it spans the entire width */
+  left: 0; /* Ensures it stays within the page boundaries */
+  z-index: 1000; /* Ensures the footer is above other elements */
+}
+
+.footer p {
+  margin: 0;
+}
+
+.footer a {
+  color: #66d9ff;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}

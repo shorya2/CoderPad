@@ -24,17 +24,12 @@ export class SignupComponent {
     }
 
     // Format the user data correctly
-    const userData = {
-      user: {
-        username: this.username,
-        useremail: this.useremail,
-        password: this.password
-      },
-      role: this.userrole
-    };
-
-    // Call the signup service
-    this.authService.signup(userData).subscribe({
+    this.authService.signup({
+      userName: this.username,
+      email: this.useremail,
+      password: this.password,
+      roleName: this.userrole
+    }).subscribe({
       next: (response) => {
         console.log(response);
         alert('Signup successful!');

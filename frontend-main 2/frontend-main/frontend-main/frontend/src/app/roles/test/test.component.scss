@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  background-color: #007bff;
+  background-color: #333;
 }
 
 .navbar-left, .navbar-right {
@@ -13,7 +13,7 @@
 
 .nav-button {
   color: white;
-  background-color: #0056b3;
+  background-color: #444;
   border: none;
   padding: 10px 20px;
   margin: 0 10px;
@@ -23,11 +23,18 @@
 }
 
 .nav-button:hover {
-  background-color: #003d80;
+  background-color: #555;
 }
 
 .nav-button:focus {
   outline: none;
+}
+
+.user-welcome {
+  margin-right: 10px;
+  font-weight: bold;
+  color: #fff;
+  font-family: Arial, sans-serif;
 }
 
 .dropdown {
@@ -36,11 +43,10 @@
 }
 
 .dropdown-button {
-  background-color: #0056b3;
+  background-color: #444;
   color: white;
   padding: 10px 20px;
   border: none;
-  border-radius: 5px;
   cursor: pointer;
 }
 
@@ -48,22 +54,26 @@
   display: none;
   position: absolute;
   right: 0;
-  background-color: #f9f9f9;
-  min-width: 150px;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-  border-radius: 5px;
+  background-color: #444;
+  border: 1px solid #555;
+  z-index: 1000; /* Ensure it appears on top */
+  border-radius: 5px; /* Smooth rounded corners */
+  min-width: 150px; /* Set a minimum width for consistency */
+  overflow: hidden; /* Add some spacing inside */
 }
 
 .dropdown-content a {
-  color: black;
-  padding: 12px 16px;
+  color: white; /* Neutral text color */
+  padding: 10px 20px; /* Comfortable padding for click areas */
   text-decoration: none;
   display: block;
+  font-size: 14px; /* Standard text size *//* Light separator */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effects */
 }
 
 .dropdown-content a:hover {
-  background-color: #f1f1f1;
+  background-color: #555; /* Highlight color on hover */
+  color: white;
 }
 
 .dropdown:hover .dropdown-content {
@@ -71,17 +81,18 @@
 }
 
 .dropdown:hover .dropdown-button {
-  background-color: #003d80;
+  background-color: #555;
 }
 
 
 .hero-section {
-  height: 33.33%; /* Hero section takes up a third of the page */
+  height: 77vh; /* Hero section takes up a third of the page */
   background-color: #f8f9fa;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: Arial, sans-serif;
 }
 .hero-section h1 {
   font-size: 3rem;

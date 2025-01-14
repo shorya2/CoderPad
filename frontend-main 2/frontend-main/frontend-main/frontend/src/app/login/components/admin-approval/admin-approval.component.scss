@@ -74,7 +74,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  background-color: #007bff;
+  background-color: #333;
 }
 
 .navbar-left {
@@ -89,7 +89,7 @@
 
 .nav-button {
   color: white;
-  background-color: #0056b3;
+  background-color: #444;
   border: none;
   padding: 10px 20px;
   margin: 0 10px;
@@ -99,7 +99,7 @@
 }
 
 .nav-button:hover {
-  background-color: #003d80;
+  background-color: #555;
 }
 
 .nav-button:focus {
@@ -142,4 +142,37 @@
 /* Show the dropdown when the parent is hovered */
 .dropdown:hover .dropdown-menu {
   display: flex;
+}
+
+.hero-section {
+  height: 39vh;
+}
+
+
+.footer {
+  background-color: #333; /* Dark background */
+  color: #fff; /* White text */
+  text-align: center;
+  padding: 15px 20px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  position: fixed; /* Fixed at the bottom of the page */
+  bottom: 0; /* Aligns the footer at the very bottom */
+  width: 100%; /* Ensures it spans the entire width */
+  left: 0; /* Ensures it stays within the page boundaries */
+  z-index: 1000; /* Ensures the footer is above other elements */
+}
+
+.footer p {
+  margin: 0;
+}
+
+.footer a {
+  color: #66d9ff;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.footer a:hover {
+  text-decoration: underline;
 }

@@ -2,6 +2,9 @@ import { Component , OnInit} from '@angular/core';
 import { UserService } from 'src/app/services/user/user.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { Location } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-profile',
@@ -11,10 +14,21 @@ import { ToastrService } from 'ngx-toastr';
 export class ProfileComponent {
   profileForm: FormGroup;
   passwordForm: FormGroup;
-  constructor(private userService:UserService, private fb:FormBuilder,private toastr:ToastrService){
+  id : number|null = null;
+  userName : string ='';
+  email : string = '';
+  password : string = '';
+  constructor(
+    private userService:UserService, 
+    private fb:FormBuilder,
+    private toastr:ToastrService,
+    private route:ActivatedRoute,
+    private authService: AuthService,
+    private location : Location
+  ){
     this.profileForm = this.fb.group({
-      username: ['', Validators.required],
-      useremail: ['', [Validators.required, Validators.email]],
+      userName: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
     });
 
     this.passwordForm = this.fb.group({
@@ -24,60 +38,82 @@ export class ProfileComponent {
     });
   }
   ngOnInit(): void {
+    this.id = parseInt(localStorage.getItem('userId') || 'null');
     this.loadUserProfile();
   }
 
   loadUserProfile(): void {
-    this.userService.getProfile().subscribe((value:any) => {
+    console.log("hi");
+    console.log(this.id);
+   
+    this.userService.getProfile(this.id).subscribe((value:any) => {
       this.profileForm.patchValue({
-        username: value[0].username,
-        useremail: value[0].useremail
+        userName: value.userName,
+        email: value.email
       });
       // console.log(value[0].username);
     });
-    this.userService.getProfile().subscribe((value:any) => {
+    this.userService.getProfile(this.id).subscribe((value: any) => {
       this.passwordForm.patchValue({
-        password:value[0].password
-      })
+        password: value.password
+      });
     });
   }
 
   onUpdateProfile(): void {
     if (this.profileForm.valid) {
-      const id = "9440";
-      this.userService
-        .updateProfile(id,this.profileForm.value)
-        .subscribe({
-          next: () => {
-            this.toastr.success('Profile updated successfully');
-          },
-          error: (error) => {
-            this.toastr.error('Failed to update profile');
-          },
-        });
-    }
-  }
+        // Construct the profile data
+        const profileData = {
+            userName: this.profileForm.value.userName,
+            email: this.profileForm.value.email
+        };
+        console.log(this.id + profileData.email);
 
-  onChangePassword(): void {
-    if (this.passwordForm.valid) {
-      const { password, cnfpassword } =
-        this.passwordForm.value;
+        if (this.id !== null && this.id !== undefined) {
+            this.userService.updateProfile(this.id, profileData).subscribe({
+                next: (response) => {
+                    this.toastr.success('Profile updated successfully');
+                    console.log(response);  // Log the response to check the result
+                },
+                error: (error) => {
+                  console.error('Error occurred while updating profile:', error);
+                  // Handle different HTTP status codes
+              },
+            });
+        } else {
+            this.toastr.error('User ID is missing!');
+        }
+    } else {
+        this.toastr.error('Form is invalid');
+    }
+}
+
+
+onChangePassword(): void {
+  if (this.passwordForm.valid) {
+      const { password, cnfpassword } = this.passwordForm.value;
 
       if (password !== cnfpassword) {
-        this.toastr.error('Passwords do not match');
-        return;
+          this.toastr.error('Passwords do not match');
+          return;
       }
-      if(this.passwordForm.valid){
-         const id = "9440";
-         this.userService.changePassword(id,this.passwordForm.value).subscribe({
-          next: () => {
-            this.toastr.success('Password changed successfully');
+
+      const passwordData = {
+          password: this.passwordForm.value.password
+      };
+
+      this.userService.changePassword(this.id, passwordData).subscribe({
+          next: (response) => {
+              this.toastr.success('Password changed successfully');
+              console.log(response);
           },
           error: (error) => {
-            this.toastr.error('Failed to change password');
+              this.toastr.error('Failed to change password',error);
           },
-        });
-      }
-    }
+      });
+  }
+}
+  goBack(){
+    this.location.back();
   }
 }

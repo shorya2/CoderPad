@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  background-color: #282c34;
+  background-color: #333;
 }
 
 .navbar-left, .navbar-right {
@@ -13,7 +13,7 @@
 
 .nav-button {
   color: white;
-  background-color: #4caf50;
+  background-color: #444;
   border: none;
   padding: 10px 20px;
   margin: 0 10px;
@@ -22,9 +22,7 @@
   text-decoration: none;
 }
 
-.nav-button:hover {
-  background-color: #45a049;
-}
+
 
 .nav-button:focus {
   outline: none;
@@ -45,15 +43,18 @@
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   z-index: 1;
   border-radius: 5px;
+  flex-direction: column;
+  min-width: 150px;
+  z-index: 1000;
 }
 
 /* Links inside dropdown */
 .dropdown-content a {
-  color: #333;
+  color: white;
+  background-color: #333;
   padding: 10px 15px;
   text-decoration: none;
   display: block;
-  border-bottom: 1px solid #ddd;
 }
 
 /* Last link doesn't need border */
@@ -63,7 +64,7 @@
 
 /* Hover effects for links */
 .dropdown-content a:hover {
-  background-color: #4caf50;
+  background-color: #444;
 }
 
 /* Show dropdown content on hover */
@@ -150,3 +151,35 @@
   }
 }
 
+.hero-section {
+  height: 52vh;
+}
+
+
+.footer {
+  background-color: #333; /* Dark background */
+  color: #fff; /* White text */
+  text-align: center;
+  padding: 15px 20px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  position: fixed; /* Fixed at the bottom of the page */
+  bottom: 0; /* Aligns the footer at the very bottom */
+  width: 100%; /* Ensures it spans the entire width */
+  left: 0; /* Ensures it stays within the page boundaries */
+  z-index: 1000; /* Ensures the footer is above other elements */
+}
+
+.footer p {
+  margin: 0;
+}
+
+.footer a {
+  color: #66d9ff;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}

@@ -38,4 +38,9 @@ public class AssignedTestController {
     public void removeAssignedTest(@PathVariable String id) {
         assignedTestService.removeAssignedTest(id);
     }
+
+    @DeleteMapping("/by-email-and-createdBy")
+    public void removeAssignedTestByEmailAndCreatedBy(@RequestParam String email, @RequestParam String createdBy) {
+        assignedTestService.removeAssignedTestByEmailAndCreatedBy(email, createdBy);
+    }
 }

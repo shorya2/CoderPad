@@ -1,3 +1,4 @@
+<body>
 <div class="navbar">
   <div class="navbar-left">
     <button routerLink="/admin-approval" class="nav-button">Profile Approval</button>
@@ -6,7 +7,8 @@
 
   <div class="navbar-right">
     <div class="dropdown">
-      <button class="nav-button">User</button>
+      <span *ngIf="userName" class="user-welcome">Welcome!! {{userName}}</span>
+      <button class="nav-button"><i class="fa-solid fa-user"></i></button>
       <div class="dropdown-menu">
         <button routerLink="/profile" class="dropdown-item">Profile</button>
         <button routerLink="/login" class="dropdown-item">Logout</button>
@@ -24,21 +26,16 @@
     </div>
   </div>
 
-  <!-- Content Section -->
-  <div class="content-section">
-    <div>
-      <h2>System Admin</h2>
-      <p>Keeping Your Systems Running Smoothly, 24/7.</p>
-    </div>
-  </div>
+  
 </main>
   <!-- Footer Section -->
   <footer class="footer">
     <div>
-      <p>&copy; 2024 TechStore. All Rights Reserved.</p>
+      <p>&copy; 2024 CoderPad. All Rights Reserved.</p>
       <a href="#">Privacy Policy</a> | 
       <a href="#">Terms of Service</a>
     </div>
   </footer>
+</body>
   <router-outlet></router-outlet> <!-- Child components will render here -->
   

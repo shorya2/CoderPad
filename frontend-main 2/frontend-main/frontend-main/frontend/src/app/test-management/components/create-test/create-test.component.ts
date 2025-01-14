@@ -17,6 +17,7 @@ export class CreateTestComponent {
       createdBy: ['', Validators.required],
       testName: ['', Validators.required],
       testDescription: ['', Validators.required],
+      
       duration: [null, [Validators.required, Validators.min(1)]]
     });
   }
@@ -29,6 +30,7 @@ export class CreateTestComponent {
       this.testService.createTest(testData).subscribe({
         next: () => {
           alert('Test created successfully!');
+          this.router.navigate([`/test-list`]);
           this.testForm.reset(); // Reset the form
         },
         error: (error) => console.error('Error creating test:', error)
