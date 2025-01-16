@@ -16,6 +16,7 @@ public class AssignedTest {
 
     //    @OneToMany(cascade = CascadeType.ALL)
     @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
+    //@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Question> questions; // List of questions in the assigned test
 
     // Getters and Setters
