@@ -1,13 +1,13 @@
 <div class="navbar">
   <div class="navbar-left">
-    <button routerLink="/create-test" class="nav-button">Create Tests</button>
+    <button routerLink="/data" class="nav-button"><i class="fa-solid fa-house"></i></button>    
     <button routerLink="/test-list" class="nav-button">Tests</button>
     <button routerLink="/create-question" class="nav-button">Create Questions</button>
   </div>
 
   <div class="navbar-right">
     <div class="dropdown">
-      <button class="nav-button">User</button>
+      <button class="nav-button"><i class="fa-solid fa-user"></i></button>
       <div class="dropdown-content">
         <a routerLink="/profile">Profile</a>
         <a routerLink="/login">Logout</a>
@@ -18,8 +18,9 @@
 
 
 <div class="create-question-container">
+  <button (click)="goBack()" class="back"><i class="fa-solid fa-arrow-left"></i></button>
   <h1>Create New Question</h1>
-
+  
   <form [formGroup]="questionForm" (ngSubmit)="saveQuestion()">
     <div class="form-group">
       <label for="questionDescription">Question Description</label>
@@ -29,7 +30,8 @@
     <div class="form-group">
       <label for="quesType">Question Type</label>
       <select id="quesType" formControlName="quesType">
-        <option value="mcq">MCQ</option>
+        <option value="mcq">Single-Select-MCQ</option>
+        <option value="multi-mcq">Multi-Select-MCQ</option>
         <option value="sql">SQL</option>
       </select>
     </div>
@@ -43,28 +45,41 @@
       </select>
     </div>
 
-    <div class="form-group" *ngIf="questionForm.value.quesType === 'mcq'">
+    <div class="form-group" *ngIf="questionForm.value.quesType === 'mcq' || questionForm.value.quesType === 'multi-mcq'">
       <label for="option1">Option 1</label>
       <input type="text" id="option1" formControlName="option1" />
     </div>
 
-    <div class="form-group" *ngIf="questionForm.value.quesType === 'mcq'">
+    <div class="form-group" *ngIf="questionForm.value.quesType === 'mcq' || questionForm.value.quesType === 'multi-mcq'">
       <label for="option2">Option 2</label>
       <input type="text" id="option2" formControlName="option2" />
     </div>
 
-    <div class="form-group" *ngIf="questionForm.value.quesType === 'mcq'">
+    <div class="form-group" *ngIf="questionForm.value.quesType === 'mcq' || questionForm.value.quesType === 'multi-mcq'">
       <label for="option3">Option 3</label>
       <input type="text" id="option3" formControlName="option3"  />
     </div>
 
-    <div class="form-group" *ngIf="questionForm.value.quesType === 'mcq'">
+    <div class="form-group" *ngIf="questionForm.value.quesType === 'mcq' || questionForm.value.quesType === 'multi-mcq'">
       <label for="option4">Option 4</label>
       <input type="text" id="option4" formControlName="option4" />
     </div>
 
-    <div class="form-group">
-      <label for="correctAnswer">Correct Answer</label>
+
+    <div class="form-group" *ngIf="questionForm.value.quesType === 'sql'">
+      <label for="ddlCommands">DDL Commands</label>
+      <textarea id="ddlCommands" formControlName="ddlCommands" placeholder="Enter DDL Commands"></textarea>
+    </div>
+    <div class="form-group" *ngIf="questionForm.value.quesType === 'sql'">
+      <label for="dmlCommands">DML Commands</label>
+      <textarea id="dmlCommands" formControlName="dmlCommands" placeholder="Enter DML Commands"></textarea>
+    </div>
+
+
+     <div class="form-group">
+      <label for="correctAnswer">
+        {{ questionForm.value.quesType === 'mcq' ? 'Correct Answer' : 'Correct Answers(seperate by comma)' }}
+      </label>
       <input type="text" id="correctAnswer" formControlName="correctAnswer" />
     </div>
 
@@ -78,5 +93,14 @@
     </button>
   </form>
 </div>
+<div class="hero-section"></div>
 
+  <footer class="footer">
+    <div>
+      <p>&copy; 2025 CoderPad. All Rights Reserved.</p>
+      <a href="#" class="text-white">Privacy Policy</a> | 
+      <a href="#" class="text-white">Terms of Service</a>
+    </div>
+  
+  </footer>
 <!-- <p>Welcome To Create Question!</p> -->

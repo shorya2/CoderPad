@@ -5,27 +5,43 @@
 
 
   <div *ngFor="let question of questions; let i = index">
-    <!-- MCQ question type -->
+    <!-- Single-Select MCQ question type -->
     <div *ngIf="question.quesType === 'mcq'">
       <p>{{i+1}} . {{ question.questionDescription }}</p>
       <div>
-        <label *ngFor="let option of getOptions(question)">
+        <label *ngFor="let option of getOptions(question);let optionIdx = index">
           <input
             type="radio"
             [name]="'question_' + question.id"
-            [value]="option"
-            (change)="selectAnswer(question.id, option)"
+            [value]="optionIdx+1"
+            (change)="selectAnswer(question.id, optionIdx+1)"
           />
           {{ option }}
         </label>
       </div>
     </div>
 
+    <!-- Multi-Select MCQ question type -->
+    <div *ngIf="question.quesType === 'multi-mcq'">
+          <p>{{ i + 1 }}. {{ question.questionDescription }}</p>
+          <div>
+            <label *ngFor="let option of getOptions(question); let optionIdx = index">
+              <input
+                type="checkbox"
+                [name]="'question_' + question.id"
+                [value]="optionIdx + 1"
+                (change)="toggleMultiSelectAnswer(question.id, optionIdx + 1, isChecked($event))"
+              />
+              {{ option }}
+            </label>
+          </div>
+    </div>
+
     <!-- SQL question type -->
     <div *ngIf="question.quesType === 'sql'">
       <p>{{i+1}} . {{ question.questionDescription }}</p>
       <textarea
-        (input)="selectAnswer(question.id, getTextAreaValue($event))"
+        (input)="selectAnswerSQL(question.id, getTextAreaValue($event))"
       ></textarea>
     </div>
   </div>
@@ -38,3 +54,4 @@
 
 
 <!-- <p>Welcome To Attempted Test</p> -->
+

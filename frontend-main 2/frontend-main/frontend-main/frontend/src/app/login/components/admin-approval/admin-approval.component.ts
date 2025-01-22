@@ -18,27 +18,31 @@ export class AdminApprovalComponent {
   }
 
   loadUsers(): void {
+    this.isLoading = true; // Set loading to true while fetching data
     this.userService.getPendingApprovals().subscribe({
       next: (data) => {
-        this.users = data.filter((user: any) => user.userrole !== 'candidate');
-        this.isLoading = false;
+        this.users = data; // Filter out non-approved users
+        this.isLoading = false; // Set loading to false when data is fetched
       },
       error: (err) => {
-        this.toastr.error('Failed to load users');
-        this.isLoading = false;
+        this.toastr.error('Failed to load users');  // Show error if request fails
+        this.isLoading = false; // Set loading to false in case of error
       },
     });
   }
+  //        this.users = data.filter((user: any) => user.userrole !== 'candidate');
 
-  approveUser(userId: string): void {
-    this.userService.approveUserRole(userId).subscribe({
+  approveUser(userEmail: string): void {
+    this.userService.approveUserRole(userEmail).subscribe({
       next: () => {
         this.toastr.success('User approved successfully');
-        this.users = this.users.filter(user => user.id !== userId);
+        this.users = this.users.filter(user => user.useremail !== userEmail); // Filter out approved user
       },
       error: () => {
+        console.log(console.error);
         this.toastr.error('Failed to approve user');
       },
     });
   }
 }
+

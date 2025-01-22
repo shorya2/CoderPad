@@ -1,4 +1,5 @@
 <div class="question-list-container">
+  <button (click)="goBack()" class="back"><i class="fa-solid fa-arrow-left"></i></button>
   <h2>Question List</h2>
   <table>
     <thead>
@@ -11,17 +12,25 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let question of questions">
-        <td>{{ question.id }}</td>
+      <tr *ngFor="let question of questions; let i = index">
+        <td>{{ i+1 }}</td>
         <td>{{ question.questionDescription }}</td>
         <td>{{ question.quesType }}</td>
         <td>{{ question.difficulty }}</td>
         <td>
-          <button (click)="addToTest(question)">Add Q</button>
+          <button (click)="addToTest(question)"><i class="fa-solid fa-plus"></i> Add</button>
         </td>
       </tr>
     </tbody>
   </table>
 </div>
 
-<!-- <p>Welcome To Question List!</p> -->
+
+<footer class="footer">
+  <div>
+    <p>&copy; 2025 CoderPad. All Rights Reserved.</p>
+    <a href="#" class="text-white">Privacy Policy</a> | 
+    <a href="#" class="text-white">Terms of Service</a>
+  </div>
+
+</footer>

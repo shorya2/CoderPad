@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.sql.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -75,6 +76,8 @@ public class AttemptedTestService {
             attemptedQuestion.setSelectedAnswer(question.getSelectedAnswer());
             attemptedQuestion.setCorrectAnswer(question.getCorrectAnswer());
 
+
+
             // First check if the selectedAnswer and correctAnswer match directly
             boolean isCorrect = false;
             if (question.getSelectedAnswer() != null && question.getSelectedAnswer().equals(question.getCorrectAnswer())) {
@@ -93,6 +96,7 @@ public class AttemptedTestService {
         }
 
         attemptedTest.setAttemptedQuestions(attemptedQuestions);
+        attemptedTest.setAttemptedDate(LocalDateTime.now());
         return attemptedTestRepository.save(attemptedTest);
     }
 

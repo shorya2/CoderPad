@@ -1,0 +1,42 @@
+<div class="otp-login-container">
+    <div class="card">
+      <h2>Login</h2>
+      <form [formGroup]="otpLoginForm" (ngSubmit)="onVerify()">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            class="form-control"
+            placeholder="Enter your email"
+            formControlName="email"
+          />
+          <div class="error-message" *ngIf="f['email'].touched && f['email'].invalid">
+            <small *ngIf="f['email'].errors?.['required']">Email is required.</small>
+            <small *ngIf="f['email'].errors?.['email']">Invalid email format.</small>
+          </div>
+        </div> <!-- Closing for email form group -->
+  
+        <div class="form-group">
+          <label for="otp">OTP</label>
+          <input
+            type="text"
+            id="otp"
+            class="form-control"
+            placeholder="Enter your OTP"
+            formControlName="otp"
+          />
+          <div class="error-message" *ngIf="f['otp'].touched && f['otp'].invalid">
+            <small *ngIf="f['otp'].errors?.['required']">OTP is required.</small>
+            <small *ngIf="f['otp'].errors?.['minlength']">OTP is too short.</small>
+            <small *ngIf="f['otp'].errors?.['maxlength']">OTP is too long.</small>
+          </div>
+        </div> <!-- Closing for OTP form group -->
+        <button type="submit" class="btn btn-primary" [disabled]="otpLoginForm.invalid">Verify</button>
+      </form><!-- Closing Form -->
+    </div>
+  </div>
+  
+
+  
+<p>otp-login works!</p>

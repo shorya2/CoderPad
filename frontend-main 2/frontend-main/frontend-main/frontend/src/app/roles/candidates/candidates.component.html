@@ -1,3 +1,5 @@
+
+
 <div class="navbar">
     <div class="navbar-left">
       <button (click)="showPopup()" routerLink="/assignedc" class="nav-button">Tests</button>
@@ -6,7 +8,8 @@
     
     <div class="navbar-right">
       <div class="dropdown">
-        <button class="nav-button" (click)="toggleDropdown()">User</button>
+        <span *ngIf="userName" class="user-welcome">Welcome!! {{userName}}</span>
+        <button class="nav-button" (click)="toggleDropdown()"><i class="fa-solid fa-user"></i></button>
         <div class="dropdown-menu" *ngIf="isDropdownVisible">
           <button routerLink="/profile" class="dropdown-item">Profile</button>
           <button routerLink="/login" (click)="logout()" class="dropdown-item">Logout</button>
@@ -24,18 +27,12 @@
   </div>
 </div>
 
-<!-- Content Section -->
-<div class="content-section">
-  <div>
-    <h2>Hola!!  CHAMP</h2>
-    <p>Driven by Passion, Ready for the Challenge</p>
-  </div>
-</div>
+
 
 <!-- Footer Section -->
 <footer class="footer">
   <div>
-    <p>&copy; 2024 TechStore. All Rights Reserved.</p>
+    <p>&copy; 2025 CoderPad. All Rights Reserved.</p>
     <a href="#" class="text-white">Privacy Policy</a> | 
     <a href="#" class="text-white">Terms of Service</a>
   </div>

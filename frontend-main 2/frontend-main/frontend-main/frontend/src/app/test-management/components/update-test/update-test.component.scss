@@ -1,4 +1,33 @@
 .update-test-container {
+  .back {
+    background-color: #444; /* Primary blue color */
+    color: white; /* Text color */
+    border: none; /* Remove default border */
+    padding: 10px 20px; /* Padding for better click area */
+    border-radius: 4px; /* Rounded corners */
+    font-size: 14px; /* Text size */
+    font-weight: 500; /* Medium font weight for better readability */
+    cursor: pointer; /* Change cursor to pointer */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition for hover effects */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow for elevation */
+  }
+  
+  .back:hover {
+    background-color: #555; /* Darker blue for hover */
+    transform: scale(1.05); /* Slight zoom effect */
+  }
+  
+  .back:focus {
+    outline: none; /* Remove default focus outline */
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); /* Add custom focus outline */
+  }
+  
+  .back:active {
+    background-color: #444; /* Even darker blue for active state */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); /* Adjust shadow for pressed state */
+    transform: scale(1); /* Remove zoom effect when pressed */
+  }
+  
   max-width: 600px;
   margin: 40px auto;
   padding: 20px;
@@ -6,6 +35,7 @@
   border: 1px solid #e0e0e0;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
 
   h1 {
     text-align: center;
@@ -43,7 +73,7 @@
 
         &:focus {
           outline: none;
-          border-color: #007bff;
+          border-color: #444;
         }
       }
 
@@ -58,14 +88,14 @@
       font-size: 16px;
       font-weight: bold;
       color: #ffffff;
-      background: #007bff;
+      background: #444;
       border: none;
       border-radius: 4px;
       cursor: pointer;
       transition: background-color 0.3s, transform 0.2s;
 
       &:hover {
-        background: #0056b3;
+        background: #555;
         transform: translateY(-1px);
       }
 
@@ -74,5 +104,84 @@
         cursor: not-allowed;
       }
     }
+  }
+}
+
+/* Media Queries */
+
+/* Large desktops (≥1200px) */
+@media (min-width: 1200px) {
+  .update-test-container {
+    max-width: 700px;
+    padding: 30px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  .back,
+  .update-button {
+    font-size: 16px;
+    padding: 12px 24px;
+  }
+}
+
+/* Tablets (768px–1199px) */
+@media (max-width: 1199px) and (min-width: 768px) {
+  .update-test-container {
+    max-width: 80%;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .back,
+  .update-button {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+}
+
+/* Mobile phones (480px–767px) */
+@media (max-width: 767px) and (min-width: 480px) {
+  .update-test-container {
+    max-width: 90%;
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  .back,
+  .update-button {
+    font-size: 13px;
+    padding: 8px 16px;
+  }
+}
+
+/* Small phones (<480px) */
+@media (max-width: 479px) {
+  .update-test-container {
+    max-width: 95%;
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 18px;
+  }
+
+  .back,
+  .update-button {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-size: 12px;
   }
 }

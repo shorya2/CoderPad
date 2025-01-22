@@ -1,14 +1,48 @@
 .test-questions-container {
-  max-width: 800px;
-  margin: 20px auto;
+  /* General layout and spacing for the container */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background-color: #f9f9f9;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  width: calc(100% - 40px); /* Full width minus margins */
+  box-sizing: border-box; /* Include padding and border in width calculations */
+  background-color: #f8f9fa; /* Light background for the entire section */
+  height: 100vh; /* Full page height */
+  font-family: Arial, sans-serif;
+
+  .back {
+    background-color: #444; 
+    color: white; 
+    border: none; 
+    padding: 10px 20px; 
+    border-radius: 4px; 
+    font-size: 14px; 
+    font-weight: 500; /* Medium font weight for better readability */
+    cursor: pointer; 
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition for hover effects */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    margin-bottom: 20px; /* Add spacing below the back button */
+  }
+  
+  .back:hover {
+    background-color: #555; 
+    transform: scale(1.05); 
+  }
+  
+  .back:focus {
+    outline: none; 
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); 
+  }
+  
+  .back:active {
+    background-color: #003d82; 
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); /* Adjust shadow for pressed state */
+    transform: scale(1); /* Remove zoom effect when pressed */
+  }
 
   .add-question-btn {
-    background-color: #007bff;
+    background-color: #444;
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -17,15 +51,22 @@
     margin-bottom: 20px;
   }
 
+  .add-question-btn :hover{
+    background-color: #555; 
+  }
   h2 {
     text-align: center;
     margin-bottom: 10px;
+    width: 100%; /* Ensure the heading spans the full width */
+    font-size: 24px;
+    font-weight: bold;
   }
 
   p {
     text-align: center;
     color: #555;
     margin-bottom: 20px;
+    width: 100%;
   }
 
   table {
@@ -34,7 +75,7 @@
     margin-top: 10px;
 
     thead {
-      background-color: #007bff;
+      background-color: #444;
       color: #fff;
 
       th {
@@ -60,34 +101,158 @@
         }
       }
     }
+    
     .delete-button {
       padding: 5px 10px;
-      margin-right: 10px;
-      background-color: #e74c3c;
+      margin-top: 5px;
+      background-color: #61403d;
       color: white;
       border: none;
       cursor: pointer;
       border-radius: 4px;
 
       &:hover {
-        background-color: lightcoral;
+        background-color: rgb(169, 67, 67);
         transform: scale(1.1);
       }
     }
 
     .update-button {
       padding: 5px 10px;
+      margin-right: 10px;
       margin-top: 5px;
-      background-color: green;
+      background-color: rgb(49, 89, 49);
       color: white;
       border: none;
       cursor: pointer;
       border-radius: 4px;
 
       &:hover {
-        background-color: lightgreen;
+        background-color: rgb(81, 148, 81);
         transform: scale(1.1);
       }
     }
+  }
+}
+
+
+/* Media Queries */
+
+/* Large desktops (≥1200px) */
+@media (min-width: 1200px) {
+  .test-questions-container {
+    padding: 30px;
+    margin: 30px;
+    width: calc(100% - 60px);
+    font-size: 16px;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+}
+
+/* Tablets (768px–1199px) */
+@media (max-width: 1199px) and (min-width: 768px) {
+  .test-questions-container {
+    padding: 20px;
+    margin: 20px;
+    width: calc(100% - 40px);
+    font-size: 14px;
+  }
+
+  .back,
+  .add-question-btn {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  table th,
+  table td {
+    padding: 8px;
+    font-size: 13px;
+  }
+}
+
+/* Mobile phones (480px–767px) */
+@media (max-width: 767px) and (min-width: 480px) {
+  .test-questions-container {
+    padding: 15px;
+    margin: 15px;
+    width: calc(100% - 30px);
+    font-size: 13px;
+  }
+
+  .back,
+  .add-question-btn {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  p {
+    font-size: 12px;
+  }
+
+  table th,
+  table td {
+    padding: 6px;
+    font-size: 12px;
+  }
+}
+
+/* Small phones (<480px) */
+@media (max-width: 479px) {
+  .test-questions-container {
+    padding: 10px;
+    margin: 10px;
+    width: calc(100% - 20px);
+    font-size: 12px;
+  }
+
+  .back,
+  .add-question-btn {
+    padding: 5px 10px;
+    font-size: 11px;
+    width: 100%; /* Full-width buttons */
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  p {
+    font-size: 11px;
+  }
+
+  table {
+    font-size: 11px;
+  }
+
+  table th,
+  table td {
+    padding: 5px;
+  }
+
+  .delete-button,
+  .update-button {
+    font-size: 10px;
+    padding: 4px 8px;
   }
 }

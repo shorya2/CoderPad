@@ -21,6 +21,8 @@ public class Question {
     private String option4;
     private String selectedAnswer;
     private String correctAnswer;
+    private String ddlCommands;
+    private String dmlCommands;
    // private boolean isCorrect;
 
     // Getters and Setters
@@ -121,5 +123,21 @@ public class Question {
 
     public void setCorrectAnswer(String correctAnswer) {
         this.correctAnswer = correctAnswer;
+    }
+
+    public String getDdlCommands() {
+        return ddlCommands;
+    }
+
+    public void setDdlCommands(String ddlCommands) {
+        this.ddlCommands = ddlCommands;
+    }
+
+    public String getDmlCommands() {
+        return dmlCommands;
+    }
+
+    public void setDmlCommands(String dmlCommands) {
+        this.dmlCommands = dmlCommands;
     }
 }

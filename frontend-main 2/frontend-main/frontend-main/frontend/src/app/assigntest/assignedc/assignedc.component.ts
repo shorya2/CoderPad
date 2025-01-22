@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { TestService } from 'src/app/services/test/test.service';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-assignedc',
@@ -8,17 +9,30 @@ import { TestService } from 'src/app/services/test/test.service';
   styleUrls: ['./assignedc.component.scss']
 })
 export class AssignedcComponent {
-  // tests = [
-  //   { sNo: 1, description: 'Math Test', duration: '60 mins' },
-  //   { sNo: 2, description: 'Science Test', duration: '45 mins' },
-  //   { sNo: 3, description: 'History Test', duration: '30 mins' },
-  // ];
   assignedTests: any[] = [];
-  constructor(private testService: TestService,private router: Router) {}
+  id: number|null = null;
+  email: string ='';
+  constructor(
+    private testService: TestService, 
+    private router: Router,
+    private userService: UserService
+  ) {}
 
   ngOnInit(): void {
-    // Fetch all assigned tests
-    this.testService.getAssignedTests().subscribe(
+    // Fetch all assigned tests for the current user
+    this.id = parseInt(localStorage.getItem('userId') || 'null');
+    // console.log(this.id + " Is Fetched");
+    this.userService.getProfile(this.id).subscribe((value:any) => {
+        this.email = value.email;
+        console.log(this.email);
+        this.getAssignedTests();
+    });
+    
+  }
+
+  getAssignedTests(){
+    console.log(this.email);
+    this.testService.getAssignedTestsByEmail(this.email).subscribe(
       (data) => {
         this.assignedTests = data;
         console.log('Assigned Tests:', this.assignedTests);
@@ -28,10 +42,9 @@ export class AssignedcComponent {
       }
     );
   }
-
+  // Start the test by navigating to the test page
   startTest(test: any): void {
     console.log('Starting test:', test);
-    // Add logic to handle test start, e.g., navigate to the test page
-     this.router.navigate([`/attempt-test/${test.id}`]);
+    this.router.navigate([`/attempt-test/${test.id}`]);
   }
 }

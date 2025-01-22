@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  background-color: #007bff;
+  background-color: #333;
 }
 
 .navbar-left, .navbar-right {
@@ -13,7 +13,7 @@
 
 .nav-button {
   color: white;
-  background-color: #0056b3;
+  background-color: #444;
   border: none;
   padding: 10px 20px;
   margin: 0 10px;
@@ -23,7 +23,7 @@
 }
 
 .nav-button:hover {
-  background-color: #003d80;
+  background-color: #5e5c5c;
 }
 
 .nav-button:focus {
@@ -32,11 +32,11 @@
 
 .dropdown {
   position: relative;
-  display: inline-block;
+  //display: inline-block;
 }
 
 .dropdown-button {
-  background-color: #0056b3;
+  background-color: #444;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -48,22 +48,27 @@
   display: none;
   position: absolute;
   right: 0;
-  background-color: #f9f9f9;
-  min-width: 150px;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-  z-index: 1;
+  background-color: #444;
+  border: 1px solid #555;
+  z-index: 1000;
+  text-align: left;
   border-radius: 5px;
+  min-width: 150px; 
+  font-family: Arial, sans-serif;
+  flex-direction: column;
 }
 
 .dropdown-content a {
-  color: black;
-  padding: 12px 16px;
+  color: white; /* Neutral text color */
+  padding: 10px 20px; /* Comfortable padding for click areas */
   text-decoration: none;
   display: block;
+  font-size: 14px; /* Standard text size *//* Light separator */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effects */
 }
 
 .dropdown-content a:hover {
-  background-color: #f1f1f1;
+  background-color: #333;
 }
 
 .dropdown:hover .dropdown-content {
@@ -71,40 +76,180 @@
 }
 
 .dropdown:hover .dropdown-button {
-  background-color: #003d80;
+  background-color: #444;
 }
-
+h2{
+  color: black;
+    text-align: center;
+    margin-top:10px;
+    margin-bottom: 20px;
+}
+.hero-section {
+  height: 52vh;
+}
   .container {
-    padding: 20px;
+    padding: 10px;
+    text-align: center;
+    font-family: Arial, sans-serif;
   }
   
   .tests-table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
+    margin-top: 10px;
   }
   
   .tests-table th, .tests-table td {
     border: 1px solid #ddd;
     padding: 8px;
-    text-align: center;
+    text-align: left;
   }
   
   .tests-table th {
     background-color: #f4f4f4;
   }
-  
+  .send-button-align{
+    display: flex;
+    justify-content: center;
+  }
   .send-button {
     padding: 5px 10px;
     color: white;
-    background-color: #007bff;
+    background-color: #444;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    
   }
+
   
   .send-button:hover {
-    background-color: #0056b3;
+    background-color: #555;
   }
   
   
+  .footer {
+    background-color: #333; /* Dark background */
+    color: #fff; /* White text */
+    text-align: center;
+    padding: 15px 20px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    position: fixed; /* Fixed at the bottom of the page */
+    bottom: 0; /* Aligns the footer at the very bottom */
+    width: 100%; /* Ensures it spans the entire width */
+    left: 0; /* Ensures it stays within the page boundaries */
+    z-index: 1000; /* Ensures the footer is above other elements */
+  }
+  
+  .footer p {
+    margin: 0;
+  }
+  
+  .footer a {
+    color: #66d9ff;
+    text-decoration: none;
+    margin: 0 5px;
+  }
+  
+  .footer a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 1200px) {
+    .navbar {
+      padding: 8px;
+    }
+  
+    .nav-button {
+      font-size: 14px;
+      padding: 8px 16px;
+    }
+  
+    .tests-table th, .tests-table td {
+      font-size: 14px;
+    }
+  
+    h2 {
+      font-size: 22px;
+    }
+  }
+  
+  @media (max-width: 992px) {
+    .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 10px;
+    }
+  
+    .navbar-left, .navbar-right {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .nav-button {
+      margin: 5px 0;
+      padding: 8px 12px;
+    }
+  
+    .tests-table th, .tests-table td {
+      font-size: 12px;
+    }
+  
+    h2 {
+      font-size: 20px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .hero-section {
+      height: auto;
+    }
+  
+    .tests-table {
+      font-size: 14px;
+    }
+  
+    h2 {
+      font-size: 18px;
+    }
+  
+    .send-button {
+      font-size: 12px;
+      padding: 5px 8px;
+    }
+  
+    .footer {
+      font-size: 12px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .nav-button {
+      font-size: 12px;
+      padding: 6px 10px;
+    }
+  
+    .tests-table {
+      font-size: 12px;
+    }
+  
+    h2 {
+      font-size: 16px;
+    }
+  
+    .send-button {
+      font-size: 10px;
+      padding: 4px 6px;
+    }
+  
+    .footer {
+      font-size: 10px;
+      padding: 10px;
+    }
+  }

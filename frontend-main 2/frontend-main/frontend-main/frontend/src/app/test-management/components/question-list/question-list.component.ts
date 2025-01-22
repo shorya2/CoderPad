@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { QuestionService } from 'src/app/services/question/question.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-question-list',
@@ -10,7 +11,7 @@ import { QuestionService } from 'src/app/services/question/question.service';
 export class QuestionListComponent {
   questions: any[] = [];
   selectedTestId = this.route.snapshot.params['testId'];
-  constructor(private questionService: QuestionService, private router: Router,private route:ActivatedRoute) {}
+  constructor(private questionService: QuestionService, private router: Router,private route:ActivatedRoute,private location :Location) {}
 
   // isQuestionInTest(questionId: string): boolean {
   //   return this.questions.some((q: any) => q.id === questionId);
@@ -30,7 +31,9 @@ export class QuestionListComponent {
       },
     });
   }
-
+    goBack(){
+      this.location.back();
+  }
   addToTest(question: any): void {
     const questionId = question.id;
     this.questionService.addQuestionToTest(this.selectedTestId, questionId).subscribe({

@@ -1,10 +1,12 @@
 package com.example.bakcend_test.controller;
 
+import com.example.bakcend_test.dto.QuestionRequestDto;
 import com.example.bakcend_test.model.Question;
 import com.example.bakcend_test.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,7 +19,33 @@ public class QuestionController {
 
     // Endpoint to create a new question
     @PostMapping
-    public Question createQuestion(@RequestBody Question question) {
+    public Question createQuestion(@RequestBody QuestionRequestDto qdto) {
+        Question question=new Question();
+        question.setId(qdto.getId());
+        question.setQuestionDescription(qdto.getQuestionDescription());
+        question.setQuesType(qdto.getQuesType());
+        question.setDifficulty(qdto.getDifficulty());
+        question.setOption1(qdto.getOption1());
+        question.setOption2(qdto.getOption2());
+        question.setOption3(qdto.getOption3());
+        question.setOption4(qdto.getOption4());
+        question.setSelectedAnswer(qdto.getSelectedAnswer());
+        question.setCorrectAnswer(qdto.getCorrectAnswer());
+        question.setDdlCommands(qdto.getDdlCommands());
+        question.setDmlCommands(qdto.getDmlCommands());
+
+        if(qdto.getQuesType().equals("sql")) {
+            String[] ddl = qdto.getDdlCommands().split(";");
+            List<String> ddlList = Arrays.asList(ddl);
+            questionService.executeDdlCommands(ddlList);
+        }
+
+        if(qdto.getQuesType().equals("sql")) {
+            String[] dml = qdto.getDmlCommands().split(";");
+            List<String> dmlList = Arrays.asList(dml);
+            questionService.executeDmlCommands(dmlList);
+        }
+
         return questionService.createQuestion(question);
     }
 

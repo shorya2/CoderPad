@@ -1,9 +1,11 @@
+
+
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  background-color: #007bff;
+  background-color: #333;
 }
 
 .navbar-left {
@@ -18,7 +20,7 @@
 
 .nav-button {
   color: white;
-  background-color: #0056b3;
+  background-color: #444;
   border: none;
   padding: 10px 20px;
   margin: 0 10px;
@@ -28,7 +30,7 @@
 }
 
 .nav-button:hover {
-  background-color: #003d80;
+  background-color: #555;
 }
 
 .nav-button:focus {
@@ -44,19 +46,18 @@
   position: absolute;
   right: 0;
   top: 100%;
-  background-color: #ffffff;
-  border: 1px solid #ccc;
+  background-color: #444;
+  border: 1px solid #555;
   border-radius: 5px;
   display: none;
   flex-direction: column;
   min-width: 150px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   z-index: 1000;
 }
 
 .dropdown-item {
-  background-color: #ffffff;
-  color: #333;
+  background-color: #444;
+  color: white;
   padding: 10px 15px;
   border: none;
   cursor: pointer;
@@ -65,22 +66,29 @@
 }
 
 .dropdown-item:hover {
-  background-color: #007bff;
+  background-color: #333;
 }
 
 /* Show the dropdown when the parent is hovered */
 .dropdown:hover .dropdown-menu {
   display: flex;
 }
+.user-welcome {
+  margin-right: 10px;
+  font-weight: bold;
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
 
 
 .hero-section {
-  height: 33.33%; /* Hero section takes up a third of the page */
+  height: 70vh; /* Hero section takes up a third of the page */
   background-color: #f8f9fa;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: Arial, sans-serif;
 }
 .hero-section h1 {
   font-size: 3rem;
@@ -109,6 +117,8 @@ body {
   flex-direction: column;
   min-height: 100vh; /* Ensure the body height covers the entire viewport */
   margin: 0; /* Remove default margin */
+  font-family: Arial, sans-serif; /* Replace 'Arial' with your desired font */
+
 }
 
 /* Main content area to push footer down */
@@ -136,8 +146,7 @@ main {
   background-color: #333; /* Dark background */
   color: #fff; /* White text */
   text-align: center; /* Center-align the text */
-  padding: 15px 20px; /* Add padding for a neat appearance */
-  font-family: Arial, sans-serif;
+  padding: 15px 20px; 
   font-size: 14px;
   margin-top: auto; /* Ensures the footer sticks at the bottom */
 }
@@ -155,4 +164,123 @@ main {
 .footer a:hover {
   text-decoration: underline;
   color: #66d9ff;
+}
+
+/* Responsive Design */
+
+/* Small Devices (Phones) */
+@media (max-width: 576px) {
+  /* Navbar */
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar-right {
+    margin-left: 0;
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-button {
+    padding: 10px;
+    margin: 5px 0;
+    width: 100%;
+  }
+
+  /* Hero Section */
+  .hero-section {
+    height: 50vh;
+    padding: 10px;
+  }
+
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+
+  .hero-section p {
+    font-size: 1rem;
+  }
+
+  /* Content Section */
+  .content-section h2 {
+    font-size: 1.5rem;
+  }
+
+  /* Footer */
+  .footer {
+    font-size: 12px;
+    padding: 10px;
+  }
+}
+
+/* Medium Devices (Tablets) */
+@media (max-width: 768px) {
+  /* Navbar */
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar-right {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+  .nav-button {
+    margin: 5px 0;
+  }
+
+  /* Hero Section */
+  .hero-section {
+    height: 60vh;
+    padding: 10px;
+  }
+
+  .hero-section h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-section p {
+    font-size: 1.125rem;
+  }
+
+  /* Content Section */
+  .content-section h2 {
+    font-size: 1.75rem;
+  }
+
+  /* Footer */
+  .footer {
+    font-size: 13px;
+    padding: 12px;
+  }
+}
+
+/* Large Devices (Desktops) */
+@media (min-width: 992px) {
+  .navbar {
+    flex-direction: row;
+  }
+
+  .hero-section {
+    height: 70vh;
+  }
+
+  .hero-section h1 {
+    font-size: 3rem;
+  }
+
+  .hero-section p {
+    font-size: 1.25rem;
+  }
+
+  .content-section h2 {
+    font-size: 2rem;
+  }
+
+  .footer {
+    font-size: 14px;
+  }
 }

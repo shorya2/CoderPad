@@ -14,21 +14,25 @@ export class CreateTestComponent {
 
   constructor(private fb: FormBuilder, private http: HttpClient,private router:Router,private testService:TestService) {
     this.testForm = this.fb.group({
-      createdBy: ['', Validators.required],
+      createdBy: ['NULL', Validators.required],
       testName: ['', Validators.required],
       testDescription: ['', Validators.required],
+      
       duration: [null, [Validators.required, Validators.min(1)]]
     });
   }
 
   saveTest() {
     if (this.testForm.valid) {
+      
       const testData = this.testForm.value;
+      testData.createdBy = (localStorage.getItem('userId') || 'null');
 
       // Call the service to create the test
       this.testService.createTest(testData).subscribe({
         next: () => {
           alert('Test created successfully!');
+          this.router.navigate([`/test-list`]);
           this.testForm.reset(); // Reset the form
         },
         error: (error) => console.error('Error creating test:', error)

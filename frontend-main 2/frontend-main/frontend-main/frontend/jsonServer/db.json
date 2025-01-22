@@ -148,84 +148,253 @@
   ],
   "assignedTests": [
     {
-      "id": "e274",
-      "createdBy": "9440",
-      "testName": "Java Test",
-      "testDescription": "Test On Basics Of Java",
-      "duration": 45,
-      "questions": [
-        {
-          "questionDescription": "What is 34+35 equal to?",
-          "quesType": "mcq",
-          "difficulty": "easy",
-          "option1": "69",
-          "option2": "43",
-          "option3": "46",
-          "option4": "68",
-          "correctAnswer": "69",
-          "id": "ce22"
-        }
-      ]
+      "0": {
+        "email": "samriddhi.dhiraj@bounteous.com",
+        "id": "5f7e4b5e-8777-4d3b-8f78-ce2484c49e70",
+        "createdDate": "2025-01-13T09:41:19.793378",
+        "modifiedDate": "2025-01-14T17:26:12.153928",
+        "createdBy": "52",
+        "testName": "Java Test",
+        "testDescription": "This is test new",
+        "duration": 10,
+        "questions": [
+          {
+            "id": "3ba94239-cab0-417b-b81d-9825b273027b",
+            "questionDescription": "Which of the following are included in JDK?",
+            "quesType": "multi-mcq",
+            "difficulty": "easy",
+            "option1": "JRE",
+            "option2": "JVM",
+            "option3": "Java",
+            "option4": "All of these",
+            "selectedAnswer": null,
+            "correctAnswer": "1,2",
+            "ddlCommands": null,
+            "dmlCommands": null
+          },
+          {
+            "id": "285b2715-32a1-4ea7-a4ae-7c9cb935c5c2",
+            "questionDescription": "What is 31*32?",
+            "quesType": "mcq",
+            "difficulty": "medium",
+            "option1": "992",
+            "option2": "882",
+            "option3": "772",
+            "option4": "662",
+            "selectedAnswer": null,
+            "correctAnswer": "992",
+            "ddlCommands": null,
+            "dmlCommands": null
+          }
+        ]
+      },
+      "1": {
+        "email": "apu@12",
+        "id": "5f7e4b5e-8777-4d3b-8f78-ce2484c49e70",
+        "createdDate": "2025-01-13T09:41:19.793378",
+        "modifiedDate": "2025-01-14T17:26:12.153928",
+        "createdBy": "52",
+        "testName": "Java Test",
+        "testDescription": "This is test new",
+        "duration": 10,
+        "questions": [
+          {
+            "id": "3ba94239-cab0-417b-b81d-9825b273027b",
+            "questionDescription": "Which of the following are included in JDK?",
+            "quesType": "multi-mcq",
+            "difficulty": "easy",
+            "option1": "JRE",
+            "option2": "JVM",
+            "option3": "Java",
+            "option4": "All of these",
+            "selectedAnswer": null,
+            "correctAnswer": "1,2",
+            "ddlCommands": null,
+            "dmlCommands": null
+          },
+          {
+            "id": "285b2715-32a1-4ea7-a4ae-7c9cb935c5c2",
+            "questionDescription": "What is 31*32?",
+            "quesType": "mcq",
+            "difficulty": "medium",
+            "option1": "992",
+            "option2": "882",
+            "option3": "772",
+            "option4": "662",
+            "selectedAnswer": null,
+            "correctAnswer": "992",
+            "ddlCommands": null,
+            "dmlCommands": null
+          }
+        ]
+      },
+      "id": "1e64"
     },
     {
-      "id": "b121",
-      "createdBy": "9440",
-      "testName": "Java Test",
-      "testDescription": "MCQ test on Collections in Java",
-      "duration": 45,
-      "questions": [
-        {
-          "questionDescription": "What is 34+35 equal to?",
-          "quesType": "mcq",
-          "difficulty": "easy",
-          "option1": "69",
-          "option2": "43",
-          "option3": "46",
-          "option4": "68",
-          "correctAnswer": "69",
-          "id": "ce22"
-        }
-      ]
+      "0": {
+        "email": "samriddhi.dhiraj@bounteous.com",
+        "id": "d98f0c2c-63eb-4884-b946-25d618bc3006",
+        "createdDate": "2025-01-14T15:14:28.254636",
+        "modifiedDate": "2025-01-14T17:58:09.800115",
+        "createdBy": "52",
+        "testName": "Test 1",
+        "testDescription": "THis is a new test",
+        "duration": 10,
+        "questions": [
+          {
+            "id": "285b2715-32a1-4ea7-a4ae-7c9cb935c5c2",
+            "questionDescription": "What is 31*32?",
+            "quesType": "mcq",
+            "difficulty": "medium",
+            "option1": "992",
+            "option2": "882",
+            "option3": "772",
+            "option4": "662",
+            "selectedAnswer": null,
+            "correctAnswer": "992",
+            "ddlCommands": null,
+            "dmlCommands": null
+          },
+          {
+            "id": "3ba94239-cab0-417b-b81d-9825b273027b",
+            "questionDescription": "Which of the following are included in JDK?",
+            "quesType": "multi-mcq",
+            "difficulty": "easy",
+            "option1": "JRE",
+            "option2": "JVM",
+            "option3": "Java",
+            "option4": "All of these",
+            "selectedAnswer": null,
+            "correctAnswer": "1,2",
+            "ddlCommands": null,
+            "dmlCommands": null
+          }
+        ]
+      },
+      "1": {
+        "email": "apu@12",
+        "id": "d98f0c2c-63eb-4884-b946-25d618bc3006",
+        "createdDate": "2025-01-14T15:14:28.254636",
+        "modifiedDate": "2025-01-14T17:58:09.800115",
+        "createdBy": "52",
+        "testName": "Test 1",
+        "testDescription": "THis is a new test",
+        "duration": 10,
+        "questions": [
+          {
+            "id": "285b2715-32a1-4ea7-a4ae-7c9cb935c5c2",
+            "questionDescription": "What is 31*32?",
+            "quesType": "mcq",
+            "difficulty": "medium",
+            "option1": "992",
+            "option2": "882",
+            "option3": "772",
+            "option4": "662",
+            "selectedAnswer": null,
+            "correctAnswer": "992",
+            "ddlCommands": null,
+            "dmlCommands": null
+          },
+          {
+            "id": "3ba94239-cab0-417b-b81d-9825b273027b",
+            "questionDescription": "Which of the following are included in JDK?",
+            "quesType": "multi-mcq",
+            "difficulty": "easy",
+            "option1": "JRE",
+            "option2": "JVM",
+            "option3": "Java",
+            "option4": "All of these",
+            "selectedAnswer": null,
+            "correctAnswer": "1,2",
+            "ddlCommands": null,
+            "dmlCommands": null
+          }
+        ]
+      },
+      "id": "775d"
     },
     {
-      "id": "e274",
-      "createdBy": "9440",
-      "testName": "Java Test",
-      "testDescription": "Test On Basics Of Java",
-      "duration": 45,
-      "questions": [
-        {
-          "questionDescription": "What is 34+35 equal to?",
-          "quesType": "mcq",
-          "difficulty": "easy",
-          "option1": "69",
-          "option2": "43",
-          "option3": "46",
-          "option4": "68",
-          "correctAnswer": "69",
-          "id": "ce22"
-        }
-      ]
-    },
-    {
-      "id": "b121",
-      "createdBy": "9440",
-      "testName": "Java Test",
-      "testDescription": "MCQ test on Collections in Java",
-      "duration": 45,
-      "questions": [
-        {
-          "questionDescription": "What is 34+35 equal to?",
-          "quesType": "mcq",
-          "difficulty": "easy",
-          "option1": "69",
-          "option2": "43",
-          "option3": "46",
-          "option4": "68",
-          "correctAnswer": "69",
-          "id": "ce22"
-        }
-      ]
+      "0": {
+        "email": "samriddhi.dhiraj@bounteous.com",
+        "id": "5f7e4b5e-8777-4d3b-8f78-ce2484c49e70",
+        "createdDate": "2025-01-13T09:41:19.793378",
+        "modifiedDate": "2025-01-14T17:26:12.153928",
+        "createdBy": "52",
+        "testName": "Java Test",
+        "testDescription": "This is test new",
+        "duration": 10,
+        "questions": [
+          {
+            "id": "3ba94239-cab0-417b-b81d-9825b273027b",
+            "questionDescription": "Which of the following are included in JDK?",
+            "quesType": "multi-mcq",
+            "difficulty": "easy",
+            "option1": "JRE",
+            "option2": "JVM",
+            "option3": "Java",
+            "option4": "All of these",
+            "selectedAnswer": null,
+            "correctAnswer": "1,2",
+            "ddlCommands": null,
+            "dmlCommands": null
+          },
+          {
+            "id": "285b2715-32a1-4ea7-a4ae-7c9cb935c5c2",
+            "questionDescription": "What is 31*32?",
+            "quesType": "mcq",
+            "difficulty": "medium",
+            "option1": "992",
+            "option2": "882",
+            "option3": "772",
+            "option4": "662",
+            "selectedAnswer": null,
+            "correctAnswer": "992",
+            "ddlCommands": null,
+            "dmlCommands": null
+          }
+        ]
+      },
+      "1": {
+        "email": "apu@12",
+        "id": "5f7e4b5e-8777-4d3b-8f78-ce2484c49e70",
+        "createdDate": "2025-01-13T09:41:19.793378",
+        "modifiedDate": "2025-01-14T17:26:12.153928",
+        "createdBy": "52",
+        "testName": "Java Test",
+        "testDescription": "This is test new",
+        "duration": 10,
+        "questions": [
+          {
+            "id": "3ba94239-cab0-417b-b81d-9825b273027b",
+            "questionDescription": "Which of the following are included in JDK?",
+            "quesType": "multi-mcq",
+            "difficulty": "easy",
+            "option1": "JRE",
+            "option2": "JVM",
+            "option3": "Java",
+            "option4": "All of these",
+            "selectedAnswer": null,
+            "correctAnswer": "1,2",
+            "ddlCommands": null,
+            "dmlCommands": null
+          },
+          {
+            "id": "285b2715-32a1-4ea7-a4ae-7c9cb935c5c2",
+            "questionDescription": "What is 31*32?",
+            "quesType": "mcq",
+            "difficulty": "medium",
+            "option1": "992",
+            "option2": "882",
+            "option3": "772",
+            "option4": "662",
+            "selectedAnswer": null,
+            "correctAnswer": "992",
+            "ddlCommands": null,
+            "dmlCommands": null
+          }
+        ]
+      },
+      "id": "6457"
     }
   ],
   "AttemptedTest": [

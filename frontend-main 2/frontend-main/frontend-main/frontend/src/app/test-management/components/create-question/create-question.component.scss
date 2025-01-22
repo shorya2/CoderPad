@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  background-color: #282c34;
+  background-color: #333;
 }
 
 .navbar-left, .navbar-right {
@@ -13,7 +13,7 @@
 
 .nav-button {
   color: white;
-  background-color: #4caf50;
+  background-color: #444;
   border: none;
   padding: 10px 20px;
   margin: 0 10px;
@@ -22,9 +22,6 @@
   text-decoration: none;
 }
 
-.nav-button:hover {
-  background-color: #45a049;
-}
 
 .nav-button:focus {
   outline: none;
@@ -33,27 +30,32 @@
 /* Dropdown container */
 .dropdown {
   position: relative;
-  display: inline-block;
+  //display: inline-block;
 }
 
-/* Dropdown content */
+// Dropdown content 
 .dropdown-content {
   display: none;
   position: absolute;
   right: 0;
-  background-color: white;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  z-index: 1;
+  background-color: #444;
+  border: 1px solid #555;
+  z-index: 1000;
+  text-align: left;
   border-radius: 5px;
+  min-width: 150px; 
+  font-family: Arial, sans-serif;
+  flex-direction: column;
 }
 
 /* Links inside dropdown */
 .dropdown-content a {
-  color: #333;
-  padding: 10px 15px;
+  color: white; /* Neutral text color */
+  padding: 10px 20px; /* Comfortable padding for click areas */
   text-decoration: none;
   display: block;
-  border-bottom: 1px solid #ddd;
+  font-size: 14px; /* Standard text size *//* Light separator */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effects */
 }
 
 /* Last link doesn't need border */
@@ -63,7 +65,7 @@
 
 /* Hover effects for links */
 .dropdown-content a:hover {
-  background-color: #4caf50;
+  background-color: #333;
 }
 
 /* Show dropdown content on hover */
@@ -73,6 +75,35 @@
 
 
 .create-question-container {
+  font-family: Arial, sans-serif;
+  .back {
+    background-color: #333; 
+    color: white; 
+    border: none; 
+    padding: 10px 20px; 
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500; /* Medium font weight for better readability */
+    cursor: pointer; /* Change cursor to pointer */
+    transition: background-color 0.3s ease, transform 0.2s ease; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  }
+  
+  .back:hover {
+    background-color: #444; /* Darker blue for hover */
+    transform: scale(1.05); /* Slight zoom effect */
+  }
+  
+  .back:focus {
+    outline: none; /* Remove default focus outline */
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); /* Add custom focus outline */
+  }
+  
+  .back:active {
+    background-color: #003d82; /* Even darker blue for active state */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); /* Adjust shadow for pressed state */
+    transform: scale(1); /* Remove zoom effect when pressed */
+  }
   max-width: 600px;
   margin: 40px auto;
   padding: 30px;
@@ -130,5 +161,123 @@
     }
   }
 }
+.footer {
+  background-color: #333; /* Dark background */
+  color: #fff; /* White text */
+  text-align: center;
+  padding: 15px 20px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  position: fixed; /* Fixed at the bottom of the page */
+  bottom: 0; /* Aligns the footer at the very bottom */
+  width: 100%; /* Ensures it spans the entire width */
+  left: 0; /* Ensures it stays within the page boundaries */
+  z-index: 1000; /* Ensures the footer is above other elements */
+}
 
+.footer p {
+  margin: 0;
+}
+
+.footer a {
+  color: #66d9ff;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* Media Queries */
+
+/* Large desktops (1200px and above) */
+@media (min-width: 1200px) {
+  .navbar {
+    padding: 20px;
+  }
+
+  .create-question-container h1 {
+    font-size: 2.5rem;
+  }
+
+  .create-question-container .save-button {
+    font-size: 18px;
+  }
+}
+
+/* Tablets (768px to 1199px) */
+@media (max-width: 1199px) and (min-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 15px;
+  }
+
+  .nav-button {
+    margin: 5px 0;
+  }
+
+  .create-question-container {
+    max-width: 80%;
+  }
+
+  .create-question-container h1 {
+    font-size: 1.8rem;
+  }
+}
+
+/* Mobile phones (480px to 767px) */
+@media (max-width: 767px) and (min-width: 480px) {
+  .navbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .nav-button {
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+
+  .create-question-container {
+    padding: 20px;
+    max-width: 90%;
+  }
+
+  .create-question-container h1 {
+    font-size: 1.5rem;
+  }
+
+  .footer {
+    font-size: 12px;
+    padding: 10px;
+  }
+}
+
+/* Small phones (below 480px) */
+@media (max-width: 479px) {
+  .navbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .nav-button {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+
+  .create-question-container {
+    padding: 15px;
+    max-width: 95%;
+  }
+
+  .create-question-container h1 {
+    font-size: 1.2rem;
+  }
+
+  .footer {
+    font-size: 10px;
+    padding: 8px;
+  }
+}
 

@@ -11,17 +11,18 @@ import { AssignedcComponent } from '../assigntest/assignedc/assignedc.component'
 import { AssigntaComponent } from '../assigntest/assignta/assignta.component';
 import { CreateTestComponent } from '../test-management/components/create-test/create-test.component';
 import { AdminApprovalComponent } from '../login/components/admin-approval/admin-approval.component';
+import { authGuard } from '../services/guard/auth.guard';
 const routes: Routes = [
-  { path: 'candidates', component: CandidatesComponent },
-  { path: 'data', component: DataComponent },
-  { path: 'test', component: TestComponent },
-  { path: 'system', component: SystemComponent },
-  { path: 'assignedc', component: AssignedcComponent },
+  { path: 'candidates', component: CandidatesComponent, canActivate: [authGuard] },
+  { path: 'data', component: DataComponent,  canActivate: [authGuard] },
+  { path: 'test', component: TestComponent, canActivate: [authGuard] },
+  { path: 'system', component: SystemComponent, canActivate: [authGuard] },
+  { path: 'assignedc', component: AssignedcComponent, canActivate: [authGuard] },
    // Add route to AssignedcComponent
-  { path: 'assignta', component: AssigntaComponent},
+  { path: 'assignta', component: AssigntaComponent, canActivate: [authGuard]},
   // { path: 'admin-approval', component: AdminApprovalComponent},
   //{ path: 'create-test', component: CreateTestComponent},
-  { path: '', redirectTo: '/candidates', pathMatch: 'full' }  // Default route (optional)
+  { path: '', redirectTo: '/login', pathMatch: 'full' }  // Default route (optional)
 ];
 
 @NgModule({

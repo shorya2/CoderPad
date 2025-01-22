@@ -47,16 +47,18 @@ export class TestQuestionsComponent {
 
   deleteQuestionFromTest(questionId: string): void {
     this.testService.getTestById(this.testId).subscribe((test) => {
-      if (test.questions) {
-        // Remove question from test's question array
-        test.questions = test.questions.filter((q: any) => q.id !== questionId);
-
-        // Save updated test
-        this.testService.updateTest(this.testId, test).subscribe(() => {
-          console.log('Question removed successfully');
-
-          this.loadTestQuestions(); // Refresh the questions list
-        });
+      if(confirm('Are you sure you want to delete this user?')){
+        if (test.questions) {
+          // Remove question from test's question array
+          test.questions = test.questions.filter((q: any) => q.id !== questionId);
+  
+          // Save updated test
+          this.testService.updateTest(this.testId, test).subscribe(() => {
+            console.log('Question removed successfully');
+  
+            this.loadTestQuestions(); // Refresh the questions list
+          });
+        }
       }
     });
   }
